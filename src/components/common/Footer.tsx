@@ -2,6 +2,8 @@ import { AiOutlineHome } from "react-icons/ai";
 import { TiThMenuOutline } from "react-icons/ti";
 import { BsHeart } from "react-icons/bs";
 import { VscComment } from "react-icons/vsc";
+import { NavLink } from "react-router-dom";
+
 import { FiUser } from "react-icons/fi";
 import styled from "styled-components";
 
@@ -9,27 +11,29 @@ const Footer = () => {
   return (
     <FooterArea>
       <IconArea>
-        <ClickAreaIcon>
+        <StyledLink to="/" activeClassName="selected">
           <AiOutlineHome />
-        </ClickAreaIcon>
+        </StyledLink>
       </IconArea>
       <IconArea>
-        <ClickAreaIcon>
+        <StyledLink to="/menu" activeClassName="selected">
           <TiThMenuOutline />
-        </ClickAreaIcon>
+        </StyledLink>
       </IconArea>
       <IconArea>
-        <ClickAreaIcon>
+        <StyledLink to="/like" activeClassName="selected">
           <BsHeart />
-        </ClickAreaIcon>
+        </StyledLink>
       </IconArea>
       <IconArea>
-        <ClickAreaIcon></ClickAreaIcon>
-        <VscComment />
+        <StyledLink to="/chat" activeClassName="selected">
+          <VscComment />
+        </StyledLink>
       </IconArea>
       <IconArea>
-        <ClickAreaIcon></ClickAreaIcon>
-        <FiUser />
+        <StyledLink to="/profile" activeClassName="selected">
+          <FiUser />
+        </StyledLink>
       </IconArea>
     </FooterArea>
   );
@@ -37,17 +41,17 @@ const Footer = () => {
 
 const FooterArea = styled.div`
   width: 100%;
+  background: white;
   display: flex;
   justify-content: space-between;
   position: fixed;
   bottom: 0;
-  padding-bottom: 0.5rem;
 `;
 
-const ClickAreaIcon = styled.div`
-  cursor: pointer;
-  & :hover {
-    color: gray;
+export const StyledLink = styled(NavLink)`
+  color: black;
+  &.${(props) => props.activeClassName} {
+    color: #fe0158;
   }
 `;
 
