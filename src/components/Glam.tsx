@@ -27,13 +27,16 @@ const Glam = ({
           </SubTitleArea>
           <MainItemsArea>
             {data &&
-              data.data.map((item, key) => (
-                <MainItem
-                  data={item}
-                  key={key}
-                  handleUpdateBtn={handleUpdateBtn}
-                />
-              ))}
+              data.data.map(
+                (item, key) =>
+                  !item.beLike && (
+                    <MainItem
+                      data={item}
+                      key={key}
+                      handleUpdateBtn={handleUpdateBtn}
+                    />
+                  )
+              )}
           </MainItemsArea>
         </>
       )}

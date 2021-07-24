@@ -3,6 +3,7 @@ import { MainItemType } from "../../util/type/DataType";
 import { ReactComponent as BeLikeSvg } from "../../assets/img/BeLikeIcon.svg";
 import { AiFillStar } from "react-icons/ai";
 import StatusUpdate from "../../util/enum/StatusUpdate";
+import { useEffect } from "react";
 
 interface MainItemProps {
   data: MainItemType;
@@ -10,6 +11,7 @@ interface MainItemProps {
 }
 
 const MainItem = ({ data, handleUpdateBtn }: MainItemProps) => {
+  useEffect(() => {});
   return (
     <MainItemArea>
       <CustomImg src={data.img} />
@@ -23,7 +25,11 @@ const MainItem = ({ data, handleUpdateBtn }: MainItemProps) => {
           ))}
         </TagsArea>
         <UpdateBtn>
-          <BeLikeBtnArea>
+          <BeLikeBtnArea
+            onClick={() => {
+              handleUpdateBtn(data.idx, StatusUpdate.DELETE);
+            }}
+          >
             <BeLikeBtn />
           </BeLikeBtnArea>
           <LikeBtnArea
@@ -33,7 +39,12 @@ const MainItem = ({ data, handleUpdateBtn }: MainItemProps) => {
           >
             <LikeBtnSpan>좋아요</LikeBtnSpan>
           </LikeBtnArea>
-          <BeLikeBtnArea star={true}>
+          <BeLikeBtnArea
+            star={true}
+            onClick={() => {
+              handleUpdateBtn(data.idx, StatusUpdate.FAVORITE);
+            }}
+          >
             <StarIcon />
           </BeLikeBtnArea>
         </UpdateBtn>

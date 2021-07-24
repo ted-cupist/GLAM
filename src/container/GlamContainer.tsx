@@ -17,28 +17,26 @@ const GlamContainer = () => {
 
   const handleUpdateBtn = useCallback(
     (idx: number, type: StatusUpdate) => {
+      const copyData = data;
       switch (type) {
         case StatusUpdate.LIKE:
-          handleLikeBtn(idx);
+          copyData!.data[idx].like = !copyData?.data[idx].like;
+          break;
+        case StatusUpdate.DELETE:
+          copyData!.data[idx].beLike = true;
+          break;
+        case StatusUpdate.FAVORITE:
+          copyData!.data[idx].star = !copyData?.data[idx].star;
           break;
       }
+      setData(copyData);
+      if (copyData) {
+        localStorage.setItem("UserData", JSON.stringify(copyData));
+      }
+      handleData();
     },
     [data, setData]
   );
-
-  const handleLikeBtn = (idx: number) => {
-    const copyData = data;
-    copyData!.data[idx].like = !copyData?.data[idx].like;
-    setData(copyData);
-    if (copyData) {
-      localStorage.setItem("UserData", JSON.stringify(copyData));
-    }
-    console.log(data?.data[idx].like);
-  };
-
-  const handleDeleteBtn = (idx: number) => {};
-
-  const handleFavoriteBtn = () => {};
 
   useEffect(() => {
     handleData();
