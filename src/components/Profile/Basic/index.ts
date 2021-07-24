@@ -1,1 +1,1 @@
-export { default } from "./BasicProfile";
+export { default } from "./Basic";
