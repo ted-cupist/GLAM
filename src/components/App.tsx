@@ -14,10 +14,10 @@ function App() {
               <Route exact path="/" component={GlamPage} />
               <Route path="/profile" component={ProfilePage} />
               <Route path="*" component={NotFoundPage} />
-              <GlobalStyle />
             </Switch>
           </BrowserRouter>
         </MaxWidth>
+        <GlobalStyle />
       </Center>
     </ThemeProvider>
   );

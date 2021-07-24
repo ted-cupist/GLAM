@@ -84,6 +84,8 @@ const ImgSelect = styled.div`
   cursor: pointer;
   width: 15%;
   height: 5px;
+  margin-left: 0.5rem;
+  border-radius: 10px;
 `;
 
 const ImgSelected = styled(ImgSelect)`
