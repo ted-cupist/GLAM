@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Page from "../util/enum/Page";
+import StatusUpdate from "../util/enum/StatusUpdate";
 import { MainItemsType } from "../util/type/DataType";
 import CustomSelectPage from "./common/CustomSelectPage";
 import MainItem from "./common/MainItem";
@@ -8,8 +9,14 @@ interface GlamProps {
   data: MainItemsType | undefined;
   selectPage: Page;
   setSelectPage: React.Dispatch<React.SetStateAction<Page>>;
+  handleUpdateBtn: (idx: number, type: StatusUpdate) => void;
 }
-const Glam = ({ data, selectPage, setSelectPage }: GlamProps) => {
+const Glam = ({
+  data,
+  selectPage,
+  setSelectPage,
+  handleUpdateBtn,
+}: GlamProps) => {
   return (
     <GlamArea>
       <CustomSelectPage selectPage={selectPage} setSelectPage={setSelectPage} />
@@ -20,7 +27,13 @@ const Glam = ({ data, selectPage, setSelectPage }: GlamProps) => {
           </SubTitleArea>
           <MainItemsArea>
             {data &&
-              data.data.map((item, key) => <MainItem data={item} key={key} />)}
+              data.data.map((item, key) => (
+                <MainItem
+                  data={item}
+                  key={key}
+                  handleUpdateBtn={handleUpdateBtn}
+                />
+              ))}
           </MainItemsArea>
         </>
       )}

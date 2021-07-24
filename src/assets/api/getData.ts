@@ -1,8 +1,14 @@
-import MainItemData from "../../data/MainItem.json";
+import jsonData from "../../data/MainItem.json";
 
 const getData = {
-  getUsers: async () => {
-    const data = await MainItemData;
+  getUsers: () => {
+    const getItem: any = localStorage.getItem("UserData");
+    if (!getItem) {
+      localStorage.setItem("UserData", JSON.stringify(jsonData));
+
+      return jsonData;
+    }
+    const data = JSON.parse(getItem);
 
     return data;
   },

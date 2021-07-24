@@ -2,12 +2,14 @@ import styled from "styled-components";
 import { MainItemType } from "../../util/type/DataType";
 import { ReactComponent as BeLikeSvg } from "../../assets/img/BeLikeIcon.svg";
 import { AiFillStar } from "react-icons/ai";
+import StatusUpdate from "../../util/enum/StatusUpdate";
 
 interface MainItemProps {
   data: MainItemType;
+  handleUpdateBtn: (idx: number, type: StatusUpdate) => void;
 }
 
-const MainItem = ({ data }: MainItemProps) => {
+const MainItem = ({ data, handleUpdateBtn }: MainItemProps) => {
   return (
     <MainItemArea>
       <CustomImg src={data.img} />
@@ -24,7 +26,11 @@ const MainItem = ({ data }: MainItemProps) => {
           <BeLikeBtnArea>
             <BeLikeBtn />
           </BeLikeBtnArea>
-          <LikeBtnArea>
+          <LikeBtnArea
+            onClick={() => {
+              handleUpdateBtn(data.idx, StatusUpdate.LIKE);
+            }}
+          >
             <LikeBtnSpan>좋아요</LikeBtnSpan>
           </LikeBtnArea>
           <BeLikeBtnArea star={true}>
@@ -48,6 +54,7 @@ const StarIcon = styled(AiFillStar)`
 
 const LikeBtnArea = styled.div`
   width: 65%;
+  cursor: pointer;
   background: #1c9dea;
   display: flex;
   justify-content: center;
@@ -67,6 +74,7 @@ const BeLikeBtnArea = styled.div<{ star?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
   height: auto;
   border-radius: 5px;
 `;

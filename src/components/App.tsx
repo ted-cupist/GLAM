@@ -3,7 +3,6 @@ import GlamPage from "../page/GlamPage";
 import ProfilePage from "../page/ProfilePage";
 import { Center, GlobalStyle, MaxWidth, theme } from "../util/styled";
 import { ThemeProvider } from "styled-components";
-
 function App() {
   return (
     <ThemeProvider theme={theme}>

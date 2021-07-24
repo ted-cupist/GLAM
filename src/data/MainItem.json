@@ -1,7 +1,7 @@
 {
   "data": [
     {
-      "idx": 1,
+      "idx": 0,
       "name": "아이유",
       "age": 30,
       "tag": ["맛집 탐방해요", "경제력이 좋아요"],
@@ -9,6 +9,16 @@
       "star": false,
       "beLike": false,
       "img": "https://dimg.donga.com/wps/NEWS/IMAGE/2021/01/17/104953245.2.jpg"
+    },
+    {
+      "idx": 1,
+      "name": "정성훈",
+      "age": 19,
+      "tag": ["웃음이 많아요", "혼자 잘 놀아요", "예의가 발라요"],
+      "like": false,
+      "star": false,
+      "beLike": false,
+      "img": "https://t1.daumcdn.net/cfile/blog/274D104954FBB5892C"
     },
     {
       "idx": 2,
@@ -22,16 +32,6 @@
     },
     {
       "idx": 3,
-      "name": "정성훈",
-      "age": 19,
-      "tag": ["웃음이 많아요", "혼자 잘 놀아요", "예의가 발라요"],
-      "like": false,
-      "star": false,
-      "beLike": false,
-      "img": "https://t1.daumcdn.net/cfile/blog/274D104954FBB5892C"
-    },
-    {
-      "idx": 4,
       "name": "송강",
       "age": 27,
       "tag": ["유머 감각이 좋아요", "대학생이에요", "외모는 잘생긴편에 속해요"],
