@@ -105,7 +105,17 @@ const Name = styled.h2`
 
 const MainItemArea = styled.div`
   height: 28rem;
-  width: 95%;
+  width: 31%;
+  margin-left: 1rem;
+  ${({ theme }) => theme.device?.smallDesktop} {
+    width: 48%;
+    margin-left: 0.5rem;
+  }
+  ${({ theme }) => theme.device?.mobile} {
+    width: 95%;
+    margin-left: 0;
+  }
+
   display: flex;
   flex-direction: column;
   border-radius: 1rem;

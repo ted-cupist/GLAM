@@ -11,7 +11,10 @@ const Glam = ({ data }: GlamProps) => {
       <SubTitleArea>
         <h2>오늘의 추천</h2>
       </SubTitleArea>
-      {data && data.data.map((item, key) => <MainItem data={item} key={key} />)}
+      <MainItemsArea>
+        {data &&
+          data.data.map((item, key) => <MainItem data={item} key={key} />)}
+      </MainItemsArea>
     </GlamArea>
   );
 };
@@ -22,6 +25,16 @@ const GlamArea = styled.div`
   justify-content: center;
   flex-direction: column;
   margin-bottom: 2.5rem;
+`;
+
+const MainItemsArea = styled.div`
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  ${({ theme }) => theme.device?.mobile} {
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 const SubTitleArea = styled.div`

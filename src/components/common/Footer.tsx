@@ -10,57 +10,54 @@ import styled from "styled-components";
 const Footer = () => {
   return (
     <FooterArea>
-      <IconArea>
-        <StyledLink to="/" activeClassName="selected">
-          <AiOutlineHome />
-        </StyledLink>
-      </IconArea>
-      <IconArea>
-        <StyledLink to="/menu" activeClassName="selected">
-          <TiThMenuOutline />
-        </StyledLink>
-      </IconArea>
-      <IconArea>
-        <StyledLink to="/like" activeClassName="selected">
-          <BsHeart />
-        </StyledLink>
-      </IconArea>
-      <IconArea>
-        <StyledLink to="/chat" activeClassName="selected">
-          <VscComment />
-        </StyledLink>
-      </IconArea>
-      <IconArea>
-        <StyledLink to="/profile" activeClassName="selected">
-          <FiUser />
-        </StyledLink>
-      </IconArea>
+      <StyledLink
+        exact
+        to="/"
+        className="notSelected"
+        activeClassName="selected"
+      >
+        <AiOutlineHome />
+      </StyledLink>
+      <StyledLink to="/menu" className="notSelected" activeClassName="selected">
+        <TiThMenuOutline />
+      </StyledLink>
+      <StyledLink to="/like" className="notSelected" activeClassName="selected">
+        <BsHeart />
+      </StyledLink>
+      <StyledLink to="/chat" className="notSelected" activeClassName="selected">
+        <VscComment />
+      </StyledLink>
+      <StyledLink
+        to="/profile"
+        className="notSelected"
+        activeClassName="selected"
+      >
+        <FiUser />
+      </StyledLink>
     </FooterArea>
   );
 };
 
 const FooterArea = styled.div`
   width: 100%;
+  max-width: 1200px;
   background: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   position: fixed;
   bottom: 0;
 `;
 
 export const StyledLink = styled(NavLink)`
   color: black;
+  font-size: 1.5rem;
+  transition: 0.2s;
   &.${(props) => props.activeClassName} {
     color: #fe0158;
   }
-`;
-
-const IconArea = styled.div`
-  width: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
+  &:hover {
+    color: #e93876;
+  }
 `;
 
 export default Footer;

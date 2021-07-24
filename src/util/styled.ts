@@ -9,6 +9,18 @@ export const GlobalStyle = createGlobalStyle`
 }
 `;
 
+export const Center = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const MaxWidth = styled.div`
+  max-width: 1200px;
+  width: 100%;
+`;
+
 const size = {
   mobile: "500px",
   tablet: "767px",
