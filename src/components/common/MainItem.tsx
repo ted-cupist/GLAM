@@ -115,7 +115,6 @@ const MainItemArea = styled.div`
     width: 95%;
     margin-left: 0;
   }
-
   display: flex;
   flex-direction: column;
   border-radius: 1rem;
