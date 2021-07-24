@@ -9,11 +9,12 @@ const GlamContainer = () => {
   const { getUsers } = getData;
   const [data, setData] = useState<MainItemsType>();
   const [selectPage, setSelectPage] = useState<Page>(Page.GLAM);
+  const [selectedImg, setSelectedImg] = useState<number>(0);
 
-  const handleData = () => {
+  const handleData = useCallback(() => {
     const data = getUsers();
     setData(data);
-  };
+  }, [getUsers]);
 
   const handleUpdateBtn = useCallback(
     (idx: number, type: StatusUpdate) => {
@@ -29,13 +30,12 @@ const GlamContainer = () => {
           copyData!.data[idx].star = !copyData?.data[idx].star;
           break;
       }
-      setData(copyData);
       if (copyData) {
         localStorage.setItem("UserData", JSON.stringify(copyData));
       }
       handleData();
     },
-    [data, setData]
+    [data, handleData]
   );
 
   useEffect(() => {
@@ -48,6 +48,8 @@ const GlamContainer = () => {
       selectPage={selectPage}
       setSelectPage={setSelectPage}
       handleUpdateBtn={handleUpdateBtn}
+      selectedImg={selectedImg}
+      setSelectedImg={setSelectedImg}
     />
   );
 };

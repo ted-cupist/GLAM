@@ -10,5 +10,5 @@ export type MainItemType = {
   like: boolean;
   star: boolean;
   beLike: boolean;
-  img: string;
+  img: string[];
 };

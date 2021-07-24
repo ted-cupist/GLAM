@@ -10,12 +10,16 @@ interface GlamProps {
   selectPage: Page;
   setSelectPage: React.Dispatch<React.SetStateAction<Page>>;
   handleUpdateBtn: (idx: number, type: StatusUpdate) => void;
+  selectedImg: number;
+  setSelectedImg: React.Dispatch<React.SetStateAction<number>>;
 }
 const Glam = ({
   data,
   selectPage,
   setSelectPage,
   handleUpdateBtn,
+  selectedImg,
+  setSelectedImg,
 }: GlamProps) => {
   return (
     <GlamArea>
@@ -34,6 +38,8 @@ const Glam = ({
                       data={item}
                       key={key}
                       handleUpdateBtn={handleUpdateBtn}
+                      selectedImg={selectedImg}
+                      setSelectedImg={setSelectedImg}
                     />
                   )
               )}

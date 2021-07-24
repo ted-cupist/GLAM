@@ -3,18 +3,34 @@ import { MainItemType } from "../../util/type/DataType";
 import { ReactComponent as BeLikeSvg } from "../../assets/img/BeLikeIcon.svg";
 import { AiFillStar } from "react-icons/ai";
 import StatusUpdate from "../../util/enum/StatusUpdate";
-import { useEffect } from "react";
+import { useState } from "react";
 
 interface MainItemProps {
   data: MainItemType;
   handleUpdateBtn: (idx: number, type: StatusUpdate) => void;
+  selectedImg: number;
+  setSelectedImg: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const MainItem = ({ data, handleUpdateBtn }: MainItemProps) => {
-  useEffect(() => {});
+  const [selected, setSelected] = useState<number>(0);
   return (
     <MainItemArea>
-      <CustomImg src={data.img} />
+      <ImgSelectArea>
+        {data.img.map((item, key) =>
+          key === selected ? (
+            <ImgSelected key={key} />
+          ) : (
+            <ImgSelect
+              key={key}
+              onClick={() => {
+                setSelected(key);
+              }}
+            />
+          )
+        )}
+      </ImgSelectArea>
+      <CustomImg src={data.img[selected]} />
       <UserDataArea>
         <Name>
           {data.name}, {data.age}
@@ -45,13 +61,35 @@ const MainItem = ({ data, handleUpdateBtn }: MainItemProps) => {
               handleUpdateBtn(data.idx, StatusUpdate.FAVORITE);
             }}
           >
-            <StarIcon />
+            {data.star ? <ClickedStarIcon /> : <StarIcon />}
           </BeLikeBtnArea>
         </UpdateBtn>
       </UserDataArea>
     </MainItemArea>
   );
 };
+
+const ImgSelectArea = styled.div`
+  width: 100%;
+  height: 5px;
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+`;
+
+const ImgSelect = styled.div`
+  background: #8080809b;
+  cursor: pointer;
+  width: 15%;
+  height: 5px;
+`;
+
+const ImgSelected = styled(ImgSelect)`
+  height: 7px;
+  background: white;
+`;
 
 const LikeBtnSpan = styled.span`
   padding: 0.5rem 0rem;
@@ -61,6 +99,10 @@ const LikeBtnSpan = styled.span`
 const StarIcon = styled(AiFillStar)`
   font-size: 1.5rem;
   color: white;
+`;
+
+const ClickedStarIcon = styled(StarIcon)`
+  color: yellow;
 `;
 
 const LikeBtnArea = styled.div`
