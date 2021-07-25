@@ -1,13 +1,25 @@
 import styled from "styled-components";
+import { Background } from "../../Profile/ProfileStyle";
 
 interface InputModalProps {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   title: string;
+  placeholder: string;
   input: string;
-  setInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  name: string;
+  setInput: (value: string | Date, name: string) => void;
+  onClickFunction?: () => void;
 }
 
-const InputModal = ({ setModal, title, input, setInput }: InputModalProps) => {
+const InputModal = ({
+  setModal,
+  title,
+  input,
+  placeholder,
+  name,
+  setInput,
+  onClickFunction,
+}: InputModalProps) => {
   return (
     <>
       <Background
@@ -19,12 +31,20 @@ const InputModal = ({ setModal, title, input, setInput }: InputModalProps) => {
         <Title>{title}</Title>
         <CustomInput
           value={input}
-          placeholder="닉네임"
+          placeholder={placeholder}
+          name={name}
           onChange={(e) => {
-            setInput(e);
+            setInput(e.target.value, e.target.name);
           }}
         />
-        <ModalBtn>변경하기</ModalBtn>
+        <ModalBtn
+          onClick={() => {
+            onClickFunction && onClickFunction();
+            setModal(false);
+          }}
+        >
+          변경하기
+        </ModalBtn>
         <ModalBtn bottom={true} onClick={() => setModal(false)}>
           돌아가기
         </ModalBtn>
@@ -45,18 +65,6 @@ const InputModalArea = styled.div`
   flex-direction: column;
   background: white;
   border-radius: 10px;
-`;
-
-const Background = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  z-index: 100;
-  width: 100%;
-  height: 100vh;
-  background: #00000039;
 `;
 
 const Title = styled.h4`

@@ -3,9 +3,9 @@ import userData from "../../data/User.json";
 
 const getData = {
   getUsers: () => {
-    const getItem: any = localStorage.getItem("UserData");
+    const getItem: any = localStorage.getItem("getUsersData");
     if (!getItem) {
-      localStorage.setItem("UserData", JSON.stringify(usersData));
+      localStorage.setItem("getUsersData", JSON.stringify(usersData));
 
       return usersData;
     }
@@ -14,9 +14,9 @@ const getData = {
     return data;
   },
   getInfo: () => {
-    const userInfo: any = localStorage.getItem("getInfo");
+    const userInfo: any = localStorage.getItem("myInfo");
     if (!userInfo) {
-      localStorage.setItem("getInfo", JSON.stringify(userData));
+      localStorage.setItem("myInfo", JSON.stringify(userData));
 
       return userData;
     }

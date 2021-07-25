@@ -19,7 +19,8 @@ interface ProfileProps {
   modalType: string;
   setModalType: React.Dispatch<React.SetStateAction<string>>;
   input: IProfileInput;
-  onChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeInput: (value: string | Date, name: string) => void;
+  handleNicknameChange: () => void;
 }
 
 const Profile = ({
@@ -30,6 +31,7 @@ const Profile = ({
   setModalType,
   input,
   onChangeInput,
+  handleNicknameChange,
 }: ProfileProps) => {
   /**
    * 닉네임
@@ -68,6 +70,7 @@ const Profile = ({
         setModalType={setModalType}
         input={input}
         onChangeInput={onChangeInput}
+        handleNicknameChange={handleNicknameChange}
       />
       <Intro data={data} />
       <Physical data={data} />

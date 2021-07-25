@@ -3,6 +3,8 @@ import { IProfileInput } from "../../../util/interface/IProfile";
 import { UserDataType } from "../../../util/type/UserDataType";
 import InputModal from "../../common/Modal/InputModal";
 import { Content, ContentArea, Contents, SubTitle } from "../ProfileStyle";
+import { DatePicker } from "react-rainbow-components";
+import CalendarModal from "../../common/Modal/CaleandarModal";
 
 interface BasicProps {
   data: UserDataType | undefined;
@@ -11,7 +13,8 @@ interface BasicProps {
   modalType: string;
   setModalType: React.Dispatch<React.SetStateAction<string>>;
   input: IProfileInput;
-  onChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onChangeInput: (value: string | Date, name: string) => void;
+  handleNicknameChange: () => void;
 }
 
 const Basic = ({
@@ -22,6 +25,7 @@ const Basic = ({
   setModalType,
   input,
   onChangeInput,
+  handleNicknameChange,
 }: BasicProps) => {
   const OpenModal = useCallback(() => {
     if (modal) {
@@ -31,17 +35,28 @@ const Basic = ({
             <InputModal
               setModal={setModal}
               title="닉네임을 변경하시겠어요?"
+              placeholder="닉네임"
               input={input.nickname}
+              name="nickname"
+              setInput={onChangeInput}
+              onClickFunction={handleNicknameChange}
+            />
+          );
+        case "birth":
+          return (
+            <CalendarModal
+              setModal={setModal}
+              date={input.birth}
               setInput={onChangeInput}
             />
           );
       }
     }
-  }, [modal, modalType]);
+  }, [handleNicknameChange, input, modal, modalType, onChangeInput, setModal]);
 
   useEffect(() => {
     OpenModal();
-  }, [OpenModal]);
+  }, [OpenModal, onChangeInput, setModal, input]);
 
   return (
     <ContentArea>
@@ -62,7 +77,14 @@ const Basic = ({
           {data?.nickname}
         </Content>
         <Content change={true}>{data?.gender}</Content>
-        <Content>{data?.birth}</Content>
+        <Content
+          onClick={() => {
+            setModal(true);
+            setModalType("birth");
+          }}
+        >
+          {data?.birth}
+        </Content>
         <Content>{data?.home}</Content>
       </Contents>
     </ContentArea>

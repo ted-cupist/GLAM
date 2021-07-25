@@ -47,3 +47,15 @@ export const TagDiv = styled.div`
 export const TagsArea = styled.div`
   margin: 0.5rem 0;
 `;
+
+export const Background = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  background: #00000039;
+`;

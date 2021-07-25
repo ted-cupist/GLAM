@@ -11,16 +11,14 @@ const ProfileContainer = () => {
   const [modalType, setModalType] = useState<string>("");
   const [input, setInput] = useState<IProfileInput>({
     nickname: "",
-    birth: "",
+    birth: new Date(),
     intro: "",
-    tall: 170,
+    tall: 0,
     school: "",
   });
 
   const onChangeInput = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const { name, value } = event.target;
-
+    (value: string | Date, name: string) => {
       setInput({
         ...input,
         [name]: value,
@@ -29,12 +27,22 @@ const ProfileContainer = () => {
     [input]
   );
 
+  const handleNicknameChange = () => {
+    console.log("handleNicknameChange");
+    const copyData = data;
+    copyData!.nickname = input.nickname;
+    if (copyData) {
+      localStorage.setItem("myInfo", JSON.stringify(copyData));
+    }
+    handleUserData();
+  };
+
   const handleUserData = useCallback(() => {
     const data = getInfo();
     setInput({
       nickname: data.nickname,
       birth: data.birth,
-      intro: data.birth,
+      intro: data.intro,
       tall: data.tall,
       school: data.school,
     });
@@ -43,7 +51,7 @@ const ProfileContainer = () => {
 
   useEffect(() => {
     handleUserData();
-  }, []);
+  }, [handleUserData]);
 
   useEffect(() => {
     modal
@@ -60,6 +68,7 @@ const ProfileContainer = () => {
       setModalType={setModalType}
       input={input}
       onChangeInput={onChangeInput}
+      handleNicknameChange={handleNicknameChange}
     />
   );
 };

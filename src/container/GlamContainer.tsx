@@ -31,7 +31,7 @@ const GlamContainer = () => {
           break;
       }
       if (copyData) {
-        localStorage.setItem("UserData", JSON.stringify(copyData));
+        localStorage.setItem("getUsersData", JSON.stringify(copyData));
       }
       handleData();
     },
