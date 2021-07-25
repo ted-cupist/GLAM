@@ -14,6 +14,7 @@ export const ContentArea = styled.div`
 export const Contents = styled.div<{ right?: boolean }>`
   display: flex;
   flex-direction: column;
+  min-width: 3.5rem;
   ${(props) => props.right && "margin-left:2rem"}
 `;
 
