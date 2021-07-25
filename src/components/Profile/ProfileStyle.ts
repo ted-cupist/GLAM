@@ -15,6 +15,7 @@ export const Contents = styled.div<{ right?: boolean }>`
   display: flex;
   flex-direction: column;
   min-width: 3.5rem;
+
   ${(props) => props.right && "margin-left:2rem"}
 `;
 
@@ -26,6 +27,7 @@ export const SubTitle = styled(BasicSpan)`
 export const Content = styled(SubTitle)<{ change?: boolean }>`
   ${(props) => props.change && "font-color:black"}
   color: #1c9dea;
+  cursor: pointer;
 `;
 
 export const TagArea = styled.div`

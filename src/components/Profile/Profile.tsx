@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CancelIcon from "../../assets/img/CancelIcon.png";
+import { IProfileInput } from "../../util/interface/IProfile";
 import { UserDataType } from "../../util/type/UserDataType";
 import Basic from "./Basic";
 import Career from "./Career";
@@ -13,9 +14,23 @@ import Tendency from "./Tendency";
 
 interface ProfileProps {
   data: UserDataType | undefined;
+  modal: boolean;
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  modalType: string;
+  setModalType: React.Dispatch<React.SetStateAction<string>>;
+  input: IProfileInput;
+  onChangeInput: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Profile = ({ data }: ProfileProps) => {
+const Profile = ({
+  data,
+  modal,
+  setModal,
+  modalType,
+  setModalType,
+  input,
+  onChangeInput,
+}: ProfileProps) => {
   /**
    * 닉네임
    * 성별
@@ -45,7 +60,15 @@ const Profile = ({ data }: ProfileProps) => {
         <h3>프로필 수정</h3>
       </ProfileHeader>
       <ProfileImg />
-      <Basic data={data} />
+      <Basic
+        data={data}
+        modal={modal}
+        setModal={setModal}
+        modalType={modalType}
+        setModalType={setModalType}
+        input={input}
+        onChangeInput={onChangeInput}
+      />
       <Intro data={data} />
       <Physical data={data} />
       <Career data={data} />
