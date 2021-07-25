@@ -1,8 +1,11 @@
+import { UserDataType } from "../../../util/type/UserDataType";
 import { Content, ContentArea, Contents, SubTitle } from "../ProfileStyle";
 
-interface BasicProps {}
+interface BasicProps {
+  data: UserDataType | undefined;
+}
 
-const Basic = ({}: BasicProps) => {
+const Basic = ({ data }: BasicProps) => {
   return (
     <ContentArea>
       <Contents>
@@ -12,10 +15,10 @@ const Basic = ({}: BasicProps) => {
         <SubTitle>위치</SubTitle>
       </Contents>
       <Contents right={true}>
-        <Content>정성훈</Content>
-        <Content change={true}>남성</Content>
-        <Content>2003-01-28</Content>
-        <Content>대구광역시</Content>
+        <Content>{data?.nickname}</Content>
+        <Content change={true}>{data?.gender}</Content>
+        <Content>{data?.birth}</Content>
+        <Content>{data?.home}</Content>
       </Contents>
     </ContentArea>
   );

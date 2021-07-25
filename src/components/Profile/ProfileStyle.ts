@@ -27,3 +27,21 @@ export const Content = styled(SubTitle)<{ change?: boolean }>`
   ${(props) => props.change && "font-color:black"}
   color: #1c9dea;
 `;
+
+export const TagArea = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+export const TagDiv = styled.div`
+  color: #1c9dea;
+  border: 1px solid #1c9dea;
+  padding: 3px 1rem;
+  margin-left: 0.7rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+`;
+
+export const TagsArea = styled.div`
+  margin: 0.5rem 0;
+`;

@@ -1,10 +1,20 @@
-interface LifeStyleProps {}
+import { UserDataType } from "../../../util/type/UserDataType";
+import { SubTitle, TagArea, TagDiv, TagsArea } from "../ProfileStyle";
 
-const LifeStyle = ({}: LifeStyleProps) => {
+interface LifeStyleProps {
+  data: UserDataType | undefined;
+}
+
+const LifeStyle = ({ data }: LifeStyleProps) => {
   return (
-    <>
-      <div></div>
-    </>
+    <TagsArea>
+      <SubTitle>라이프 스타일</SubTitle>
+      <TagArea>
+        {data?.lifeStyle.map((item, key) => (
+          <TagDiv key={key}>{item}</TagDiv>
+        ))}
+      </TagArea>
+    </TagsArea>
   );
 };
 

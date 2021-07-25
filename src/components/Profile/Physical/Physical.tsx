@@ -1,8 +1,11 @@
+import { UserDataType } from "../../../util/type/UserDataType";
 import { Content, ContentArea, Contents, SubTitle } from "../ProfileStyle";
 
-interface PhysicalProps {}
+interface PhysicalProps {
+  data: UserDataType | undefined;
+}
 
-const Physical = ({}: PhysicalProps) => {
+const Physical = ({ data }: PhysicalProps) => {
   return (
     <ContentArea>
       <Contents>
@@ -10,8 +13,8 @@ const Physical = ({}: PhysicalProps) => {
         <SubTitle>체형</SubTitle>
       </Contents>
       <Contents right={true}>
-        <Content>180cm</Content>
-        <Content>보통</Content>
+        <Content>{data?.tall}cm</Content>
+        <Content>{data?.physical}</Content>
       </Contents>
     </ContentArea>
   );

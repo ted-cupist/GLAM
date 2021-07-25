@@ -1,8 +1,11 @@
+import { UserDataType } from "../../../util/type/UserDataType";
 import { Content, ContentArea, Contents, SubTitle } from "../ProfileStyle";
 
-interface CareerProps {}
+interface CareerProps {
+  data: UserDataType | undefined;
+}
 
-const Career = ({}: CareerProps) => {
+const Career = ({ data }: CareerProps) => {
   return (
     <ContentArea>
       <Contents>
@@ -12,10 +15,10 @@ const Career = ({}: CareerProps) => {
         <SubTitle>학교</SubTitle>
       </Contents>
       <Contents right={true}>
-        <Content>없음</Content>
-        <Content>프로그래머(개발자)</Content>
-        <Content>기타</Content>
-        <Content>없음</Content>
+        <Content>{data?.rectal ? data?.rectal : "없음"}</Content>
+        <Content>{data?.job}</Content>
+        <Content>{data?.grade}</Content>
+        <Content>{data?.school}</Content>
       </Contents>
     </ContentArea>
   );

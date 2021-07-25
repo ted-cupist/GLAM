@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import CancelIcon from "../../assets/img/CancelIcon.png";
+import { UserDataType } from "../../util/type/UserDataType";
 import Basic from "./Basic";
 import Career from "./Career";
 import Charm from "./Charm";
@@ -10,7 +11,11 @@ import Physical from "./Physical";
 import ProfileImg from "./ProfileImg";
 import Tendency from "./Tendency";
 
-const Profile = () => {
+interface ProfileProps {
+  data: UserDataType | undefined;
+}
+
+const Profile = ({ data }: ProfileProps) => {
   /**
    * 닉네임
    * 성별
@@ -23,7 +28,7 @@ const Profile = () => {
    * 직업
    * 학력
    * 학교
-   * 성격
+   * 성격 3개 선택 가능
    * 종교
    * 음주
    * 흡연
@@ -40,16 +45,16 @@ const Profile = () => {
         <h3>프로필 수정</h3>
       </ProfileHeader>
       <ProfileImg />
-      <Basic />
-      <Intro />
-      <Physical />
-      <Career />
-      <Tendency />
+      <Basic data={data} />
+      <Intro data={data} />
+      <Physical data={data} />
+      <Career data={data} />
+      <Tendency data={data} />
       {/* 성향 */}
-      <Charm />
+      <Charm data={data} />
       {/* 매력 */}
-      <Interest />
-      <LifeStyle />
+      <Interest data={data} />
+      <LifeStyle data={data} />
     </ProfileArea>
   );
 };
@@ -69,6 +74,7 @@ const ProfileHeader = styled.header`
 
 const ProfileArea = styled.div`
   width: 100%;
+  margin-bottom: 4rem;
 `;
 
 export default Profile;

@@ -1,8 +1,11 @@
+import { UserDataType } from "../../../util/type/UserDataType";
 import { Content, ContentArea, Contents, SubTitle } from "../ProfileStyle";
 
-interface TendencyProps {}
+interface TendencyProps {
+  data: UserDataType | undefined;
+}
 
-const Tendency = ({}: TendencyProps) => {
+const Tendency = ({ data }: TendencyProps) => {
   return (
     <ContentArea>
       <Contents>
@@ -14,12 +17,16 @@ const Tendency = ({}: TendencyProps) => {
         <SubTitle>인종</SubTitle>
       </Contents>
       <Contents right={true}>
-        <Content>활발한, 성실한, 단순한</Content>
-        <Content>무교</Content>
-        <Content>안 함</Content>
-        <Content>안 함</Content>
-        <Content>B형</Content>
-        <Content>한국인</Content>
+        <Content>
+          {data?.personality.map((item, key) => (
+            <span key={key}>{item} </span>
+          ))}
+        </Content>
+        <Content>{data?.religion}</Content>
+        <Content>{data?.bear}</Content>
+        <Content>{data?.smoking}</Content>
+        <Content>{data?.bloodType}</Content>
+        <Content>{data?.race}</Content>
       </Contents>
     </ContentArea>
   );

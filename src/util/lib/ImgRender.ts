@@ -18,7 +18,7 @@ const ImgRender = () => {
         setProfileImg("");
       }
     },
-    [profileUploadImg, setProfileImg, profileImg]
+    [setProfileImg]
   );
 
   return { onClickImgUpload };
