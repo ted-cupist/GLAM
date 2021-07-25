@@ -1,0 +1,22 @@
+{
+  "nickname": "정성훈",
+  "gender": "man",
+  "birth": "2003-01-28",
+  "home": "대구광역시",
+  "intro": "안녕하세요. 정성훈입니다.",
+  "tall": "180cm",
+  "physical": "슬림",
+  "rectal": null,
+  "job": "학생",
+  "grade": "기타.",
+  "school": "대구소프트웨어고등학교",
+  "personality": ["활발한", "성실한", "단순한"],
+  "religion": "무교",
+  "bear": "안함.",
+  "smoking": "안함",
+  "bloodType": "B형",
+  "race": "한국인",
+  "charm": ["장난기가 많아요", "허세 없어요"],
+  "interest": ["여행", " IT", "맛집 탐방", "게임"],
+  "lifeStyle": ["1인 가구", "교대 근무"]
+}
