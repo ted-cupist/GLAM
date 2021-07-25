@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import { Background } from "../../Profile/ProfileStyle";
+import {
+  Background,
+  BasicModalStyle,
+  ModalTitle,
+} from "../../Profile/ProfileStyle";
 
 interface InputModalProps {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -28,7 +32,7 @@ const InputModal = ({
         }}
       ></Background>
       <InputModalArea>
-        <Title>{title}</Title>
+        <ModalTitle>{title}</ModalTitle>
         <CustomInput
           value={input}
           placeholder={placeholder}
@@ -53,23 +57,13 @@ const InputModal = ({
   );
 };
 
-const InputModalArea = styled.div`
-  z-index: 101;
-  position: fixed;
+const InputModalArea = styled(BasicModalStyle)`
   min-width: 17rem;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   align-items: center;
   display: flex;
   flex-direction: column;
   background: white;
   border-radius: 10px;
-`;
-
-const Title = styled.h4`
-  font-size: 1.3rem;
-  padding: 0.5rem 1rem;
 `;
 
 const ModalBtn = styled.button<{ bottom?: boolean }>`

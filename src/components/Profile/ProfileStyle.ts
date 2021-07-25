@@ -59,3 +59,32 @@ export const Background = styled.div`
   height: 100vh;
   background: #00000039;
 `;
+
+export const BasicModalStyle = styled.div`
+  z-index: 101;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 17rem;
+  display: flex;
+  align-items: center;
+`;
+
+export const ModalTitle = styled.h4`
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+`;
+
+export const SelectArea = styled.div`
+  width: 90%;
+  overflow-y: scroll;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const SelectDiv = styled.span`
+  display: inline-block;
+  padding: 0.4rem 0;
+`;

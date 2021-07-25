@@ -73,7 +73,13 @@ const Profile = ({
         handleNicknameChange={handleNicknameChange}
       />
       <Intro data={data} />
-      <Physical data={data} />
+      <Physical
+        data={data}
+        modal={modal}
+        setModal={setModal}
+        modalType={modalType}
+        setModalType={setModalType}
+      />
       <Career data={data} />
       <Tendency data={data} />
       {/* 성향 */}
