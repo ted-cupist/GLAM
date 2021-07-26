@@ -1,6 +1,4 @@
-import { useState } from "react";
 import styled from "styled-components";
-import ModalType from "../../../util/enum/ModalType";
 import { UserDataType } from "../../../util/type/UserDataType";
 import { CustomInput, CustomProfileBtn } from "../ProfileStyle";
 
@@ -9,9 +7,8 @@ interface IntroProps {
   input: string;
   modal: boolean;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
-  modalType: string;
-  setModalType: React.Dispatch<React.SetStateAction<string>>;
   onChangeInput: (value: string | Date, name: string) => void;
+  handleModifyIntro: () => void;
 }
 
 const Intro = ({
@@ -19,15 +16,14 @@ const Intro = ({
   input,
   modal,
   setModal,
-  modalType,
-  setModalType,
   onChangeInput,
+  handleModifyIntro,
 }: IntroProps) => {
   return (
     <IntroArea>
       <IntroAreaMargin>
         <h4>소개</h4>
-        {modal && modalType === ModalType.INTRO ? (
+        {modal ? (
           <IntroModifyArea>
             <CustomInput
               value={input}
@@ -38,12 +34,18 @@ const Intro = ({
                 onChangeInput(e.target.value, e.target.name);
               }}
             />
-            <IntroBtn onClick={() => setModal(false)}>완료</IntroBtn>
+            <IntroBtn
+              onClick={() => {
+                handleModifyIntro();
+                setModal(false);
+              }}
+            >
+              완료
+            </IntroBtn>
           </IntroModifyArea>
         ) : (
           <span
             onClick={() => {
-              setModalType(ModalType.INTRO);
               setModal(true);
             }}
           >

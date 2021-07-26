@@ -10,6 +10,7 @@ const ProfileContainer = () => {
   const [modal, setModal] = useState<boolean>(false);
   const [modalType, setModalType] = useState<string>("");
   const [birth, setBirth] = useState<string>("");
+  const [introModal, setIntroModal] = useState<boolean>(false);
   const [input, setInput] = useState<IProfileInput>({
     nickname: "",
     home: "",
@@ -67,12 +68,20 @@ const ProfileContainer = () => {
     setData(data);
   }, [getInfo]);
 
+  const handleModifyIntro = () => {
+    const copyData = data;
+    copyData!.intro = input.intro;
+    localStorage.setItem("myInfo", JSON.stringify(copyData));
+    handleUserData();
+  };
+
+  const PersonalitySelctItem = () => {};
+
   const handleUpdateUserData = useCallback(() => {
     const copyData = data;
     if (copyData) {
       copyData!.birth = String(birth);
       copyData!.home = input.home;
-      copyData!.intro = input.intro;
       copyData!.physical = input.physical;
       copyData!.grade = input.grade;
       copyData!.personality = input.personality;
@@ -112,6 +121,7 @@ const ProfileContainer = () => {
 
   useEffect(() => {
     if (modal) {
+      setIntroModal(false);
       document.body.style.overflow = "hidden";
     } else {
       handleUpdateUserData();
@@ -131,6 +141,9 @@ const ProfileContainer = () => {
       setBirth={setBirth}
       onChangeInput={onChangeInput}
       handleProfileChange={handleProfileChange}
+      introModal={introModal}
+      setIntroModal={setIntroModal}
+      handleModifyIntro={handleModifyIntro}
     />
   );
 };

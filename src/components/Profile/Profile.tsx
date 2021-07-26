@@ -24,6 +24,9 @@ interface ProfileProps {
   setBirth: React.Dispatch<React.SetStateAction<string>>;
   onChangeInput: (value: string | Date, name: string) => void;
   handleProfileChange: () => void;
+  introModal: boolean;
+  setIntroModal: React.Dispatch<React.SetStateAction<boolean>>;
+  handleModifyIntro: () => void;
 }
 
 const Profile = ({
@@ -37,6 +40,9 @@ const Profile = ({
   setBirth,
   onChangeInput,
   handleProfileChange,
+  introModal,
+  setIntroModal,
+  handleModifyIntro,
 }: ProfileProps) => {
   /**
    * 닉네임
@@ -71,11 +77,10 @@ const Profile = ({
       <Intro
         data={data}
         input={input.intro}
-        modal={modal}
-        setModal={setModal}
-        modalType={modalType}
-        setModalType={setModalType}
+        modal={introModal}
+        setModal={setIntroModal}
         onChangeInput={onChangeInput}
+        handleModifyIntro={handleModifyIntro}
       />
       <Physical data={data} setModal={setModal} setModalType={setModalType} />
       <Career data={data} setModal={setModal} setModalType={setModalType} />
