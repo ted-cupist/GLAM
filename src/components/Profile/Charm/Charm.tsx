@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { UserDataType } from "../../../util/type/UserDataType";
-import { SubTitle, TagArea, TagDiv, TagsArea } from "../ProfileStyle";
+import { Content, SubTitle, TagArea, TagDiv, TagsArea } from "../ProfileStyle";
 import ModalType from "../../../util/enum/ModalType";
 
 interface CharmProps {
@@ -22,6 +22,18 @@ const Charm = ({ data, setModal, setModalType }: CharmProps) => {
         {data?.charm.map((item, key) => (
           <TagDiv key={key}>{item}</TagDiv>
         ))}
+        {!data?.charm.length && (
+          <Content>
+            <span
+              onClick={() => {
+                setModal(true);
+                setModalType(ModalType.INTEREST);
+              }}
+            >
+              선택해주세요
+            </span>
+          </Content>
+        )}
       </TagArea>
     </CharmArea>
   );

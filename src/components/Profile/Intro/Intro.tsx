@@ -52,6 +52,15 @@ const Intro = ({
             {data?.intro}
           </span>
         )}
+        {!data?.intro && !modal && (
+          <span
+            onClick={() => {
+              setModal(true);
+            }}
+          >
+            입력해 주세요
+          </span>
+        )}
         <span>SNS 아이디 등 연락처 입력 시 서비스 이용 제한됩니다</span>
       </IntroAreaMargin>
     </IntroArea>

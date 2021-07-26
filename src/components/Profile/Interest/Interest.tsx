@@ -1,5 +1,5 @@
 import { UserDataType } from "../../../util/type/UserDataType";
-import { SubTitle, TagArea, TagDiv, TagsArea } from "../ProfileStyle";
+import { Content, SubTitle, TagArea, TagDiv, TagsArea } from "../ProfileStyle";
 import ModalType from "../../../util/enum/ModalType";
 
 interface InterestProps {
@@ -21,6 +21,18 @@ const Interest = ({ data, setModal, setModalType }: InterestProps) => {
         {data?.interest.map((item, key) => (
           <TagDiv key={key}>{item}</TagDiv>
         ))}
+        {!data?.interest.length && (
+          <Content>
+            <span
+              onClick={() => {
+                setModal(true);
+                setModalType(ModalType.INTEREST);
+              }}
+            >
+              선택해주세요
+            </span>
+          </Content>
+        )}
       </TagArea>
     </TagsArea>
   );

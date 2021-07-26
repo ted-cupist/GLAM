@@ -1,5 +1,5 @@
 import { UserDataType } from "../../../util/type/UserDataType";
-import { SubTitle, TagArea, TagDiv, TagsArea } from "../ProfileStyle";
+import { Content, SubTitle, TagArea, TagDiv, TagsArea } from "../ProfileStyle";
 import ModalType from "../../../util/enum/ModalType";
 
 interface LifeStyleProps {
@@ -21,6 +21,18 @@ const LifeStyle = ({ data, setModal, setModalType }: LifeStyleProps) => {
         {data?.lifeStyle.map((item, key) => (
           <TagDiv key={key}>{item}</TagDiv>
         ))}
+        {!data?.lifeStyle.length && (
+          <Content>
+            <span
+              onClick={() => {
+                setModal(true);
+                setModalType(ModalType.INTEREST);
+              }}
+            >
+              선택해주세요
+            </span>
+          </Content>
+        )}
       </TagArea>
     </TagsArea>
   );

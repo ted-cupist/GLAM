@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import {
   Background,
   CustomModalTitle,
@@ -47,9 +47,9 @@ const SelectsModal = ({
       <SelectModalArea>
         <CustomModalTitle>{title}</CustomModalTitle>
         <SelectArea itemsNumber={model.length}>
-          {model.map((modelItem, modelKey) => (
+          {model.sort().map((modelItem, modelKey) => (
             <>
-              {selected && modelItem === selected[count] ? (
+              {selected && modelItem === selected.sort()[count] ? (
                 <>{selectedItem(modelItem, modelKey)}</>
               ) : (
                 <SelectSpan
