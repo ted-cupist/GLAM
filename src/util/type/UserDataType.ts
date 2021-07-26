@@ -1,5 +1,6 @@
 export type UserDataType = {
   nickname: string;
+  profile_img: string[];
   gender: string;
   birth: string;
   home: string;

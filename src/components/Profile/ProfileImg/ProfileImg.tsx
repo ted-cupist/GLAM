@@ -2,18 +2,40 @@ import styled from "styled-components";
 import UserImg from "../../../assets/img/userimg.png";
 import { BasicDiv } from "../ProfileStyle";
 
-interface ProfileImgProps {}
+interface ProfileImgProps {
+  data: string[];
+}
 
-const ProfileImg = ({}: ProfileImgProps) => {
+const ProfileImg = ({ data }: ProfileImgProps) => {
   return (
     <>
       <ImgArea>
-        <CustomImg src={UserImg} alt="" />
-        <CustomImg src={UserImg} alt="" />
-        <CustomImg src={UserImg} alt="" />
-        <CustomImg src={UserImg} alt="" />
-        <CustomImg src={UserImg} alt="" />
-        <CustomImg src={UserImg} alt="" />
+        {data.map((item, key) => (
+          <>
+            <FileUploadLabel key={key} htmlFor="file">
+              <CustomImg src={item} alt="사진입니다" />
+            </FileUploadLabel>
+            <FileSelectInput
+              type="file"
+              id="file"
+              accept="image/png image/jpeg image/jpg"
+            />
+          </>
+        ))}
+        {[...Array(6 - data.length)].map((item, key) => {
+          return (
+            <>
+              <FileUploadLabel htmlFor="file">
+                <CustomImg key={key} src={UserImg} alt="파일을 선택해주세요" />
+              </FileUploadLabel>
+              <FileSelectInput
+                type="file"
+                id="file"
+                accept="image/png image/jpeg image/jpg"
+              />
+            </>
+          );
+        })}
       </ImgArea>
       <SpanArea>
         <BasicDiv>얼굴이 선명히 보이는 사진으로 올려주세요</BasicDiv>
@@ -31,9 +53,9 @@ const ImgArea = styled.div`
 `;
 
 const CustomImg = styled.img`
-  width: 30%;
-  margin: 5px;
-  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `;
 const CustomA = styled.a`
   font-size: 13px;
@@ -46,6 +68,19 @@ const CustomA = styled.a`
 const SpanArea = styled.div`
   width: 100%;
   height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const FileSelectInput = styled.input`
+  display: none;
+`;
+
+const FileUploadLabel = styled.label`
+  width: 30%;
+  margin: 5px;
+  flex-grow: 1;
   display: flex;
   align-items: center;
   justify-content: center;

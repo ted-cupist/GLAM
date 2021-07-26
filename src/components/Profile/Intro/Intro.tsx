@@ -3,7 +3,7 @@ import { UserDataType } from "../../../util/type/UserDataType";
 import { CustomInput, CustomProfileBtn } from "../ProfileStyle";
 
 interface IntroProps {
-  data: UserDataType | undefined;
+  data: UserDataType;
   input: string;
   modal: boolean;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
@@ -49,10 +49,10 @@ const Intro = ({
               setModal(true);
             }}
           >
-            {data?.intro}
+            {data.intro}
           </span>
         )}
-        {!data?.intro && !modal && (
+        {!data.intro && !modal && (
           <span
             onClick={() => {
               setModal(true);

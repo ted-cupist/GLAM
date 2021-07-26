@@ -3,7 +3,7 @@ import { Content, ContentArea, Contents, SubTitle } from "../ProfileStyle";
 import ModalType from "../../../util/enum/ModalType";
 
 interface PhysicalProps {
-  data: UserDataType | undefined;
+  data: UserDataType;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   setModalType: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -23,7 +23,7 @@ const Physical = ({ data, setModal, setModalType }: PhysicalProps) => {
               setModalType(ModalType.TALL);
             }}
           >
-            {data?.tall}cm
+            {data.tall}cm
           </span>
         </Content>
         <Content>
@@ -33,7 +33,7 @@ const Physical = ({ data, setModal, setModalType }: PhysicalProps) => {
               setModalType(ModalType.PHYSICAL);
             }}
           >
-            {data?.physical}
+            {data.physical}
           </span>
         </Content>
       </Contents>

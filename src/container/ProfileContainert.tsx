@@ -7,6 +7,7 @@ import { UserDataType } from "../util/type/UserDataType";
 const ProfileContainer = () => {
   const { getInfo } = getData;
   const [data, setData] = useState<UserDataType>();
+  const [onClickModify, setOnClickModify] = useState<boolean>(false);
   const [modal, setModal] = useState<boolean>(false);
   const [modalType, setModalType] = useState<string>("");
   const [birth, setBirth] = useState<string>("");
@@ -137,29 +138,35 @@ const ProfileContainer = () => {
   }, [modal, setModal]);
 
   return (
-    <Profile
-      data={data}
-      modal={modal}
-      setModal={setModal}
-      modalType={modalType}
-      setModalType={setModalType}
-      input={input}
-      birth={birth}
-      setBirth={setBirth}
-      onChangeInput={onChangeInput}
-      handleProfileChange={handleProfileChange}
-      introModal={introModal}
-      setIntroModal={setIntroModal}
-      handleModifyIntro={handleModifyIntro}
-      personality={personality}
-      setPersonality={setPersonality}
-      charm={charm}
-      setCharm={setCharm}
-      interest={interest}
-      setInterest={setInterest}
-      lifeStyle={lifeStyle}
-      setLifeStyle={setLifeStyle}
-    />
+    <>
+      {data ? (
+        <Profile
+          data={data}
+          modal={modal}
+          setModal={setModal}
+          modalType={modalType}
+          setModalType={setModalType}
+          input={input}
+          birth={birth}
+          setBirth={setBirth}
+          onChangeInput={onChangeInput}
+          handleProfileChange={handleProfileChange}
+          introModal={introModal}
+          setIntroModal={setIntroModal}
+          handleModifyIntro={handleModifyIntro}
+          personality={personality}
+          setPersonality={setPersonality}
+          charm={charm}
+          setCharm={setCharm}
+          interest={interest}
+          setInterest={setInterest}
+          lifeStyle={lifeStyle}
+          setLifeStyle={setLifeStyle}
+        />
+      ) : (
+        <span>...loading</span>
+      )}
+    </>
   );
 };
 

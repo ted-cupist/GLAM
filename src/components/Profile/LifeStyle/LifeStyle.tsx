@@ -3,7 +3,7 @@ import { Content, SubTitle, TagArea, TagDiv, TagsArea } from "../ProfileStyle";
 import ModalType from "../../../util/enum/ModalType";
 
 interface LifeStyleProps {
-  data: UserDataType | undefined;
+  data: UserDataType;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   setModalType: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -18,10 +18,10 @@ const LifeStyle = ({ data, setModal, setModalType }: LifeStyleProps) => {
           setModalType(ModalType.LIFESTYLE);
         }}
       >
-        {data?.lifeStyle.map((item, key) => (
+        {data.lifeStyle.map((item, key) => (
           <TagDiv key={key}>{item}</TagDiv>
         ))}
-        {!data?.lifeStyle.length && (
+        {!data.lifeStyle.length && (
           <Content>
             <span
               onClick={() => {

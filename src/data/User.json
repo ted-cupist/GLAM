@@ -1,5 +1,10 @@
 {
   "nickname": "정성훈",
+  "profile_img": [
+    "https://blog.kakaocdn.net/dn/0mySg/btqCUccOGVk/nQ68nZiNKoIEGNJkooELF1/img.jpg",
+    "https://blog.kakaocdn.net/dn/bezjux/btqCX8fuOPX/6uq138en4osoKRq9rtbEG0/img.jpg",
+    "https://img.insight.co.kr/static/2019/04/01/700/60308481nf5f1d6o1l76.jpg"
+  ],
   "gender": "남성",
   "birth": "2003-01-28",
   "home": "대구광역시",

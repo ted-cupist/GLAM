@@ -4,7 +4,7 @@ import { Content, SubTitle, TagArea, TagDiv, TagsArea } from "../ProfileStyle";
 import ModalType from "../../../util/enum/ModalType";
 
 interface CharmProps {
-  data: UserDataType | undefined;
+  data: UserDataType;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   setModalType: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -19,10 +19,10 @@ const Charm = ({ data, setModal, setModalType }: CharmProps) => {
           setModalType(ModalType.CHARM);
         }}
       >
-        {data?.charm.map((item, key) => (
+        {data.charm.map((item, key) => (
           <TagDiv key={key}>{item}</TagDiv>
         ))}
-        {!data?.charm.length && (
+        {!data.charm.length && (
           <Content>
             <span
               onClick={() => {

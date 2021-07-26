@@ -3,7 +3,7 @@ import { Content, SubTitle, TagArea, TagDiv, TagsArea } from "../ProfileStyle";
 import ModalType from "../../../util/enum/ModalType";
 
 interface InterestProps {
-  data: UserDataType | undefined;
+  data: UserDataType;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   setModalType: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -18,10 +18,10 @@ const Interest = ({ data, setModal, setModalType }: InterestProps) => {
           setModalType(ModalType.INTEREST);
         }}
       >
-        {data?.interest.map((item, key) => (
+        {data.interest.map((item, key) => (
           <TagDiv key={key}>{item}</TagDiv>
         ))}
-        {!data?.interest.length && (
+        {!data.interest.length && (
           <Content>
             <span
               onClick={() => {

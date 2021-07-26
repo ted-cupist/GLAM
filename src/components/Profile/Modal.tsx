@@ -18,7 +18,6 @@ import InterestModel from "../../util/models/interest";
 import LifeStyleModel from "../../util/models/lifeStyle";
 
 interface ModalProps {
-  data: UserDataType | undefined;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   modalType: string;
   input: IProfileInput;
@@ -37,7 +36,6 @@ interface ModalProps {
 }
 
 const Modal = ({
-  data,
   setModal,
   modalType,
   input,

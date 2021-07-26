@@ -3,7 +3,7 @@ import { Content, ContentArea, Contents, SubTitle } from "../ProfileStyle";
 import ModalType from "../../../util/enum/ModalType";
 
 interface CareerProps {
-  data: UserDataType | undefined;
+  data: UserDataType;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   setModalType: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -25,7 +25,7 @@ const Career = ({ data, setModal, setModalType }: CareerProps) => {
               setModalType(ModalType.RECTAL);
             }}
           >
-            {data?.rectal ? data?.rectal : "없음"}
+            {data.rectal ? data.rectal : "없음"}
           </span>
         </Content>
         <Content>
@@ -35,7 +35,7 @@ const Career = ({ data, setModal, setModalType }: CareerProps) => {
               setModalType(ModalType.JOB);
             }}
           >
-            {data?.job}
+            {data.job}
           </span>
         </Content>
         <Content>
@@ -45,7 +45,7 @@ const Career = ({ data, setModal, setModalType }: CareerProps) => {
               setModalType(ModalType.EDUCATION);
             }}
           >
-            {data?.grade}
+            {data.grade}
           </span>
         </Content>
         <Content>
@@ -55,7 +55,7 @@ const Career = ({ data, setModal, setModalType }: CareerProps) => {
               setModalType(ModalType.SCHOOL);
             }}
           >
-            {data?.school}
+            {data.school}
           </span>
         </Content>
       </Contents>

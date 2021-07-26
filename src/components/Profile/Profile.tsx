@@ -14,7 +14,7 @@ import ProfileImg from "./ProfileImg";
 import Tendency from "./Tendency";
 
 interface ProfileProps {
-  data: UserDataType | undefined;
+  data: UserDataType;
   modal: boolean;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   modalType: string;
@@ -60,35 +60,13 @@ const Profile = ({
   lifeStyle,
   setLifeStyle,
 }: ProfileProps) => {
-  /**
-   * 닉네임
-   * 성별
-   * 생일
-   * 위치
-   * 소개
-   * 키
-   * 체형
-   * 직장
-   * 직업
-   * 학력
-   * 학교
-   * 성격 3개 선택 가능
-   * 종교
-   * 음주
-   * 흡연
-   * 혈액형
-   * 인종
-   * 매력포인트
-   * 관심사
-   * 라이프 스타일
-   */
   return (
     <ProfileArea>
       <ProfileHeader>
         <CancelIconImg src={CancelIcon} />
         <h3>프로필 수정</h3>
       </ProfileHeader>
-      <ProfileImg />
+      <ProfileImg data={data.profile_img} />
       <Basic data={data} setModal={setModal} setModalType={setModalType} />
       <Intro
         data={data}
@@ -108,7 +86,6 @@ const Profile = ({
       <LifeStyle data={data} setModal={setModal} setModalType={setModalType} />
       {modal && (
         <Modal
-          data={data}
           setModal={setModal}
           modalType={modalType}
           input={input}

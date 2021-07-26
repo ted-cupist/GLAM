@@ -3,7 +3,7 @@ import { Content, ContentArea, Contents, SubTitle } from "../ProfileStyle";
 import ModalType from "../../../util/enum/ModalType";
 
 interface BasicProps {
-  data: UserDataType | undefined;
+  data: UserDataType;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   setModalType: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -25,17 +25,17 @@ const Basic = ({ data, setModal, setModalType }: BasicProps) => {
               setModalType(ModalType.NICKNAME);
             }}
           >
-            {data?.nickname}
+            {data.nickname}
           </span>
         </Content>
-        <Content change={true}>{data?.gender}</Content>
+        <Content change={true}>{data.gender}</Content>
         <Content
           onClick={() => {
             setModal(true);
             setModalType(ModalType.BIRTH);
           }}
         >
-          <span>{data?.birth}</span>
+          <span>{data.birth}</span>
         </Content>
         <Content>
           <span
@@ -44,7 +44,7 @@ const Basic = ({ data, setModal, setModalType }: BasicProps) => {
               setModalType(ModalType.HOME);
             }}
           >
-            {data?.home}
+            {data.home}
           </span>
         </Content>
       </Contents>
