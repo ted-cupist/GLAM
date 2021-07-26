@@ -4,7 +4,6 @@ import ProfilePage from "../page/ProfilePage";
 import { Center, GlobalStyle, MaxWidth, theme } from "../util/styled";
 import { ThemeProvider } from "styled-components";
 import NotFoundPage from "../page/NotFoundPage";
-import ErrorPage from "../page/ErrorPage";
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -14,7 +13,6 @@ function App() {
             <Switch>
               <Route exact path="/" component={GlamPage} />
               <Route path="/profile" component={ProfilePage} />
-              <Route path="/GLAM" component={ErrorPage} />
               <Route path="*" component={NotFoundPage} />
             </Switch>
           </BrowserRouter>
