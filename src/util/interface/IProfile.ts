@@ -9,7 +9,6 @@ export interface IProfileInput {
   job: string;
   grade: string;
   school: string;
-  personality: string[];
   religion: string;
   // 종교
   bear: string;
@@ -17,7 +16,4 @@ export interface IProfileInput {
   bloodType: string;
   race: string;
   // 인종
-  charm: string[];
-  interest: string[];
-  lifeStyle: string[];
 }

@@ -78,10 +78,11 @@ export const ModalTitle = styled.h4`
   padding: 0.5rem 1rem;
 `;
 
-export const SelectArea = styled.div`
+export const SelectArea = styled.div<{ itemsNumber?: number }>`
   width: 90%;
   overflow-y: scroll;
   height: 10rem;
+  ${(props) => props.itemsNumber && props?.itemsNumber < 5 && "height : auto;"}
   display: flex;
   flex-direction: column;
 `;
@@ -122,4 +123,15 @@ export const CustomProfileBtn = styled.button<{ bottom?: boolean }>`
     ${(props) => !props.bottom && "background :#1c9dea ;"}
   }
   padding: 5px 0;
+`;
+
+export const SelectModalArea = styled(BasicModalStyle)`
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 10px;
+`;
+
+export const CustomModalTitle = styled.h4`
+  padding: 0.5rem 0;
 `;

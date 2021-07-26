@@ -11,6 +11,11 @@ import BloodModel from "../../util/models/bloodType";
 import RaceModel from "../../util/models/race";
 import CalendarModal from "../common/Modal/CalendarModal";
 import CitiesModel from "../../util/models/cities";
+import SelectsModal from "../common/Modal/SelectsModal";
+import PersonalityModel from "../../util/models/personality";
+import CharmModel from "../../util/models/charm";
+import InterestModel from "../../util/models/interest";
+import LifeStyleModel from "../../util/models/lifeStyle";
 
 interface ModalProps {
   data: UserDataType | undefined;
@@ -21,6 +26,14 @@ interface ModalProps {
   setBirth: React.Dispatch<React.SetStateAction<string>>;
   onChangeInput: (value: string | Date, name: string) => void;
   handleProfileChange: () => void;
+  personality: string[];
+  setPersonality: React.Dispatch<React.SetStateAction<string[]>>;
+  charm: string[];
+  setCharm: React.Dispatch<React.SetStateAction<string[]>>;
+  interest: string[];
+  setInterest: React.Dispatch<React.SetStateAction<string[]>>;
+  lifeStyle: string[];
+  setLifeStyle: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const Modal = ({
@@ -32,6 +45,14 @@ const Modal = ({
   setBirth,
   onChangeInput,
   handleProfileChange,
+  personality,
+  setPersonality,
+  charm,
+  setCharm,
+  interest,
+  setInterest,
+  lifeStyle,
+  setLifeStyle,
 }: ModalProps) => {
   return (
     <div>
@@ -123,7 +144,15 @@ const Modal = ({
           onClickFunction={handleProfileChange}
         />
       )}
-      {/* 성격 */}
+      {modalType === ModalType.PERSONALITY && (
+        <SelectsModal
+          title={"성격"}
+          model={PersonalityModel}
+          setModal={setModal}
+          selected={personality}
+          setValue={setPersonality}
+        />
+      )}
       {modalType === ModalType.RELIGION && (
         <SelectModal
           title="종교"
@@ -172,6 +201,33 @@ const Modal = ({
           setModal={setModal}
           selected={input?.race}
           onChangeItem={onChangeInput}
+        />
+      )}
+      {modalType === ModalType.CHARM && (
+        <SelectsModal
+          title={"매력"}
+          model={CharmModel}
+          setModal={setModal}
+          selected={charm}
+          setValue={setCharm}
+        />
+      )}
+      {modalType === ModalType.INTEREST && (
+        <SelectsModal
+          title={"관심사"}
+          model={InterestModel}
+          setModal={setModal}
+          selected={interest}
+          setValue={setInterest}
+        />
+      )}
+      {modalType === ModalType.LIFESTYLE && (
+        <SelectsModal
+          title={"라이프 스타일"}
+          model={LifeStyleModel}
+          setModal={setModal}
+          selected={lifeStyle}
+          setValue={setLifeStyle}
         />
       )}
     </div>

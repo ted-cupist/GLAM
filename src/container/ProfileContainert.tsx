@@ -11,6 +11,10 @@ const ProfileContainer = () => {
   const [modalType, setModalType] = useState<string>("");
   const [birth, setBirth] = useState<string>("");
   const [introModal, setIntroModal] = useState<boolean>(false);
+  const [personality, setPersonality] = useState<string[]>([]);
+  const [charm, setCharm] = useState<string[]>([]);
+  const [interest, setInterest] = useState<string[]>([]);
+  const [lifeStyle, setLifeStyle] = useState<string[]>([]);
   const [input, setInput] = useState<IProfileInput>({
     nickname: "",
     home: "",
@@ -21,15 +25,11 @@ const ProfileContainer = () => {
     rectal: "",
     job: "",
     grade: "",
-    personality: [""],
     religion: "",
     bear: "",
     smoking: "",
     bloodType: "",
     race: "",
-    charm: [""],
-    interest: [""],
-    lifeStyle: [""],
   });
 
   const onChangeInput = useCallback(
@@ -54,16 +54,16 @@ const ProfileContainer = () => {
       rectal: data.rectal,
       job: data.job,
       grade: data.grade,
-      personality: data.personality,
       religion: data.religion,
       bear: data.bear,
       smoking: data.smoking,
       bloodType: data.bloodType,
       race: data.race,
-      charm: data.charm,
-      interest: data.interest,
-      lifeStyle: data.lifeStyle,
     });
+    setPersonality(data.personality);
+    setCharm(data.charm);
+    setInterest(data.interest);
+    setLifeStyle(data.lifeStyle);
     setBirth(data.birth);
     setData(data);
   }, [getInfo]);
@@ -75,28 +75,35 @@ const ProfileContainer = () => {
     handleUserData();
   };
 
-  const PersonalitySelctItem = () => {};
-
   const handleUpdateUserData = useCallback(() => {
     const copyData = data;
     if (copyData) {
+      copyData!.personality = personality;
+      copyData!.charm = charm;
+      copyData!.interest = interest;
+      copyData!.lifeStyle = lifeStyle;
       copyData!.birth = String(birth);
       copyData!.home = input.home;
       copyData!.physical = input.physical;
       copyData!.grade = input.grade;
-      copyData!.personality = input.personality;
       copyData!.religion = input.religion;
       copyData!.bear = input.bear;
       copyData!.smoking = input.smoking;
       copyData!.bloodType = input.bloodType;
       copyData!.race = input.race;
-      copyData!.charm = input.charm;
-      copyData!.interest = input.interest;
-      copyData!.lifeStyle = input.lifeStyle;
       localStorage.setItem("myInfo", JSON.stringify(copyData));
     }
     handleUserData();
-  }, [birth, data, handleUserData, input]);
+  }, [
+    birth,
+    data,
+    handleUserData,
+    input,
+    personality,
+    interest,
+    charm,
+    lifeStyle,
+  ]);
 
   const handleProfileChange = useCallback(() => {
     const copyData = data;
@@ -144,6 +151,14 @@ const ProfileContainer = () => {
       introModal={introModal}
       setIntroModal={setIntroModal}
       handleModifyIntro={handleModifyIntro}
+      personality={personality}
+      setPersonality={setPersonality}
+      charm={charm}
+      setCharm={setCharm}
+      interest={interest}
+      setInterest={setInterest}
+      lifeStyle={lifeStyle}
+      setLifeStyle={setLifeStyle}
     />
   );
 };

@@ -27,6 +27,14 @@ interface ProfileProps {
   introModal: boolean;
   setIntroModal: React.Dispatch<React.SetStateAction<boolean>>;
   handleModifyIntro: () => void;
+  personality: string[];
+  setPersonality: React.Dispatch<React.SetStateAction<string[]>>;
+  charm: string[];
+  setCharm: React.Dispatch<React.SetStateAction<string[]>>;
+  interest: string[];
+  setInterest: React.Dispatch<React.SetStateAction<string[]>>;
+  lifeStyle: string[];
+  setLifeStyle: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 const Profile = ({
@@ -43,6 +51,14 @@ const Profile = ({
   introModal,
   setIntroModal,
   handleModifyIntro,
+  personality,
+  setPersonality,
+  charm,
+  setCharm,
+  interest,
+  setInterest,
+  lifeStyle,
+  setLifeStyle,
 }: ProfileProps) => {
   /**
    * 닉네임
@@ -86,10 +102,10 @@ const Profile = ({
       <Career data={data} setModal={setModal} setModalType={setModalType} />
       <Tendency data={data} setModal={setModal} setModalType={setModalType} />
       {/* 성향 */}
-      <Charm data={data} />
+      <Charm data={data} setModal={setModal} setModalType={setModalType} />
       {/* 매력 */}
-      <Interest data={data} />
-      <LifeStyle data={data} />
+      <Interest data={data} setModal={setModal} setModalType={setModalType} />
+      <LifeStyle data={data} setModal={setModal} setModalType={setModalType} />
       {modal && (
         <Modal
           data={data}
@@ -100,6 +116,14 @@ const Profile = ({
           setBirth={setBirth}
           onChangeInput={onChangeInput}
           handleProfileChange={handleProfileChange}
+          personality={personality}
+          setPersonality={setPersonality}
+          charm={charm}
+          setCharm={setCharm}
+          interest={interest}
+          setInterest={setInterest}
+          lifeStyle={lifeStyle}
+          setLifeStyle={setLifeStyle}
         />
       )}
     </ProfileArea>

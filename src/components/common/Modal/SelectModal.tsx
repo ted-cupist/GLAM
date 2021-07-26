@@ -5,6 +5,8 @@ import {
   SelectArea,
   SelectSpan,
   SelectedSpan,
+  SelectModalArea,
+  CustomModalTitle,
 } from "../../Profile/ProfileStyle";
 
 interface SelectModalProps {
@@ -12,7 +14,7 @@ interface SelectModalProps {
   name: string;
   model: string[];
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
-  selected: string | undefined;
+  selected: string;
   onChangeItem: (value: string, name: string) => void;
 }
 
@@ -29,7 +31,7 @@ const SelectModal = ({
       <Background onClick={() => setModal(false)} />
       <SelectModalArea>
         <CustomModalTitle>{title}</CustomModalTitle>
-        <SelectArea>
+        <SelectArea itemsNumber={model.length}>
           {model.map((item, key) =>
             selected === item ? (
               <SelectedSpan
@@ -57,16 +59,5 @@ const SelectModal = ({
     </>
   );
 };
-
-const SelectModalArea = styled(BasicModalStyle)`
-  display: flex;
-  flex-direction: column;
-  background: white;
-  border-radius: 10px;
-`;
-
-const CustomModalTitle = styled.h4`
-  padding: 0.5rem 0;
-`;
 
 export default SelectModal;

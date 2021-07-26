@@ -1,16 +1,24 @@
 import styled from "styled-components";
 import { UserDataType } from "../../../util/type/UserDataType";
 import { SubTitle, TagArea, TagDiv, TagsArea } from "../ProfileStyle";
+import ModalType from "../../../util/enum/ModalType";
 
 interface CharmProps {
   data: UserDataType | undefined;
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalType: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Charm = ({ data }: CharmProps) => {
+const Charm = ({ data, setModal, setModalType }: CharmProps) => {
   return (
     <CharmArea>
       <SubTitle>매력 포인트</SubTitle>
-      <TagArea>
+      <TagArea
+        onClick={() => {
+          setModal(true);
+          setModalType(ModalType.CHARM);
+        }}
+      >
         {data?.charm.map((item, key) => (
           <TagDiv key={key}>{item}</TagDiv>
         ))}

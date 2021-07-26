@@ -29,6 +29,7 @@ const Tendency = ({ data, setModal, setModalType }: TendencyProps) => {
           {data?.personality.map((item, key) => (
             <span key={key}>{item} </span>
           ))}
+          {!data?.personality.length && <span>선택해주세요</span>}
         </Content>
         <Content>
           <span
