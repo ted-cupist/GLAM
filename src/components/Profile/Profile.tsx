@@ -20,6 +20,8 @@ interface ProfileProps {
   modalType: string;
   setModalType: React.Dispatch<React.SetStateAction<string>>;
   input: IProfileInput;
+  birth: string;
+  setBirth: React.Dispatch<React.SetStateAction<string>>;
   onChangeInput: (value: string | Date, name: string) => void;
   handleProfileChange: () => void;
 }
@@ -31,6 +33,8 @@ const Profile = ({
   modalType,
   setModalType,
   input,
+  birth,
+  setBirth,
   onChangeInput,
   handleProfileChange,
 }: ProfileProps) => {
@@ -79,6 +83,8 @@ const Profile = ({
           setModal={setModal}
           modalType={modalType}
           input={input}
+          birth={birth}
+          setBirth={setBirth}
           onChangeInput={onChangeInput}
           handleProfileChange={handleProfileChange}
         />

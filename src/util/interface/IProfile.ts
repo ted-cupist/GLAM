@@ -1,6 +1,5 @@
 export interface IProfileInput {
   nickname: string;
-  birth: Date;
   home: string;
   intro: string;
   tall: number;

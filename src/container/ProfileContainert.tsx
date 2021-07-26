@@ -9,9 +9,9 @@ const ProfileContainer = () => {
   const [data, setData] = useState<UserDataType>();
   const [modal, setModal] = useState<boolean>(false);
   const [modalType, setModalType] = useState<string>("");
+  const [birth, setBirth] = useState<string>("");
   const [input, setInput] = useState<IProfileInput>({
     nickname: "",
-    birth: new Date(),
     home: "",
     intro: "",
     tall: 0,
@@ -33,6 +33,7 @@ const ProfileContainer = () => {
 
   const onChangeInput = useCallback(
     (value: string | Date, name: string) => {
+      console.log(value);
       setInput({
         ...input,
         [name]: value,
@@ -45,7 +46,6 @@ const ProfileContainer = () => {
     const data = getInfo();
     setInput({
       nickname: data.nickname,
-      birth: new Date(),
       home: data.home,
       intro: data.intro,
       tall: data.tall,
@@ -64,13 +64,14 @@ const ProfileContainer = () => {
       interest: data.interest,
       lifeStyle: data.lifeStyle,
     });
+    setBirth(data.birth);
     setData(data);
   }, [getInfo]);
 
   const handleUpdateUserData = useCallback(() => {
     const copyData = data;
     if (copyData) {
-      copyData!.birth = input.birth;
+      copyData!.birth = String(birth);
       copyData!.home = input.home;
       copyData!.physical = input.physical;
       copyData!.grade = input.grade;
@@ -86,7 +87,7 @@ const ProfileContainer = () => {
       localStorage.setItem("myInfo", JSON.stringify(copyData));
     }
     handleUserData();
-  }, [data, handleUserData, input]);
+  }, [birth, data, handleUserData, input]);
 
   const handleProfileChange = useCallback(() => {
     const copyData = data;
@@ -106,6 +107,10 @@ const ProfileContainer = () => {
   }, [handleUserData]);
 
   useEffect(() => {
+    setModal(false);
+  }, [birth]);
+
+  useEffect(() => {
     if (modal) {
       document.body.style.overflow = "hidden";
     } else {
@@ -122,6 +127,8 @@ const ProfileContainer = () => {
       modalType={modalType}
       setModalType={setModalType}
       input={input}
+      birth={birth}
+      setBirth={setBirth}
       onChangeInput={onChangeInput}
       handleProfileChange={handleProfileChange}
     />

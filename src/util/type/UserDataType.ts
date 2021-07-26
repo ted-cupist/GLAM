@@ -1,7 +1,7 @@
 export type UserDataType = {
   nickname: string;
   gender: string;
-  birth: Date;
+  birth: string;
   home: string;
   intro: string;
   tall: number;

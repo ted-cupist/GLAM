@@ -17,6 +17,8 @@ interface ModalProps {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   modalType: string;
   input: IProfileInput;
+  birth: string;
+  setBirth: React.Dispatch<React.SetStateAction<string>>;
   onChangeInput: (value: string | Date, name: string) => void;
   handleProfileChange: () => void;
 }
@@ -26,6 +28,8 @@ const Modal = ({
   setModal,
   modalType,
   input,
+  birth,
+  setBirth,
   onChangeInput,
   handleProfileChange,
 }: ModalProps) => {
@@ -43,11 +47,7 @@ const Modal = ({
         />
       )}
       {modalType === ModalType.BIRTH && (
-        <CalendarModal
-          setModal={setModal}
-          date={input.birth}
-          setInput={onChangeInput}
-        />
+        <CalendarModal setModal={setModal} date={birth} setInput={setBirth} />
       )}
       {modalType === ModalType.HOME && (
         <SelectModal
