@@ -1,46 +1,34 @@
-# Getting Started with Create React App
+# 사용 스택
+- TypeScript : 개발 언어로 TypeScript를 사용하였습니다.
+- React : 웹 개발을 하기 위한 UI Library로 사용하였습니다.
+- Styled-Components : 웹 스타일링을 하는 도구로 사용하였습니다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 주의사항
+- 모바일 웹에 최적화 되어있습니다. 
+- 사용자의 유저 사진, 나의 프로필 사진은 link으로 불러오는것이므로 조금은 기다려주세요 ! 
+- 페이지는 메인화면의 GLAM페이지, 프로필 수정 페이지만 구현이 되어있습니다. 
+- 프로필 사진은 변경이 안됩니다. 
 
-## Available Scripts
+# 사용법
+[접속하기](https://jsh0128.github.io/GLAM/) - URL<br/>
+접속시에 왼쪽 하단에 있는 HOME버튼을 눌러주세요.
 
-In the project directory, you can run:
 
-### `yarn start`
+### 모바일 메인화면
+<img src="https://user-images.githubusercontent.com/52942411/127020355-2d0e9f83-48b0-43e8-b5c5-a24a1a112a3e.PNG" alt="모바일 메인화면" width="32%"/>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 모바일 수정화면
+<div>
+<img src="https://user-images.githubusercontent.com/52942411/127020338-85d911e1-c3da-4064-a92d-1c148c32781d.PNG" alt="모바일 수정화면" width="32%"/>
+<img src="https://user-images.githubusercontent.com/52942411/127020341-dc1c30cc-0b21-4294-a116-0afe788ed488.PNG" alt="모바일 수정화면1" width="33%"/>
+<img src="https://user-images.githubusercontent.com/52942411/127020337-397a0c41-8f35-4cdc-b23e-7750fbb8dbd5.PNG" alt="모바일 수정화면2" width="32%"/>
+</div>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 메인화면
+![GlamDesktop](https://user-images.githubusercontent.com/52942411/127020343-0da6323e-a02a-441c-b19c-583f3dc0e9b6.PNG)
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 프로필 수정화면
+![ProfileDeskotp1](https://user-images.githubusercontent.com/52942411/127020359-6076eef6-a0db-4075-979c-4aeec916639a.PNG)
+![ProfileDesktop](https://user-images.githubusercontent.com/52942411/127020366-e450b437-fbd7-44c8-b0f8-75f6e6a27503.PNG)
+![ProfileDesktop2](https://user-images.githubusercontent.com/52942411/127020330-e252b1c2-1068-4d29-b32f-420f794ed004.PNG)
+![ProfileDesktop3](https://user-images.githubusercontent.com/52942411/127020335-910740ad-64c1-439a-a9b3-03b935d84bdd.PNG)

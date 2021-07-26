@@ -9,7 +9,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Center>
         <MaxWidth>
-          <BrowserRouter>
+          <BrowserRouter basename="/GLAM">
             <Switch>
               <Route exact path="/" component={GlamPage} />
               <Route path="/profile" component={ProfilePage} />
