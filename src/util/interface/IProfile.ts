@@ -5,7 +5,7 @@ export interface IProfileInput {
   intro: string;
   tall: number;
   physical: string;
-  rectal: string | null;
+  rectal: string;
   // 직장
   job: string;
   grade: string;

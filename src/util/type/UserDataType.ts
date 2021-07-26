@@ -6,7 +6,7 @@ export type UserDataType = {
   intro: string;
   tall: number;
   physical: string;
-  rectal: null;
+  rectal: string;
   job: string;
   grade: string;
   school: string;

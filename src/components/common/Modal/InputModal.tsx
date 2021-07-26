@@ -9,7 +9,7 @@ interface InputModalProps {
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   title: string;
   placeholder: string;
-  input: string;
+  input: string | number;
   name: string;
   setInput: (value: string | Date, name: string) => void;
   onClickFunction?: () => void;

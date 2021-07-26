@@ -17,7 +17,7 @@ const ProfileContainer = () => {
     tall: 0,
     school: "",
     physical: "",
-    rectal: null,
+    rectal: "",
     job: "",
     grade: "",
     personality: [""],
