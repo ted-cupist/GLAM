@@ -1,11 +1,14 @@
 import { UserDataType } from "../../../util/type/UserDataType";
 import { Content, ContentArea, Contents, SubTitle } from "../ProfileStyle";
+import ModalType from "../../../util/enum/ModalType";
 
 interface CareerProps {
   data: UserDataType | undefined;
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalType: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Career = ({ data }: CareerProps) => {
+const Career = ({ data, setModal, setModalType }: CareerProps) => {
   return (
     <ContentArea>
       <Contents>
@@ -15,10 +18,46 @@ const Career = ({ data }: CareerProps) => {
         <SubTitle>학교</SubTitle>
       </Contents>
       <Contents right={true}>
-        <Content>{data?.rectal ? data?.rectal : "없음"}</Content>
-        <Content>{data?.job}</Content>
-        <Content>{data?.grade}</Content>
-        <Content>{data?.school}</Content>
+        <Content>
+          <span
+            onClick={() => {
+              setModal(true);
+              setModalType(ModalType.RECTAL);
+            }}
+          >
+            {data?.rectal ? data?.rectal : "없음"}
+          </span>
+        </Content>
+        <Content>
+          <span
+            onClick={() => {
+              setModal(true);
+              setModalType(ModalType.JOB);
+            }}
+          >
+            {data?.job}
+          </span>
+        </Content>
+        <Content>
+          <span
+            onClick={() => {
+              setModal(true);
+              setModalType(ModalType.EDUCATION);
+            }}
+          >
+            {data?.grade}
+          </span>
+        </Content>
+        <Content>
+          <span
+            onClick={() => {
+              setModal(true);
+              setModalType(ModalType.SCHOOL);
+            }}
+          >
+            {data?.school}
+          </span>
+        </Content>
       </Contents>
     </ContentArea>
   );

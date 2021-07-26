@@ -1,11 +1,14 @@
 import { UserDataType } from "../../../util/type/UserDataType";
 import { Content, ContentArea, Contents, SubTitle } from "../ProfileStyle";
+import ModalType from "../../../util/enum/ModalType";
 
 interface TendencyProps {
   data: UserDataType | undefined;
+  setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  setModalType: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const Tendency = ({ data }: TendencyProps) => {
+const Tendency = ({ data, setModal, setModalType }: TendencyProps) => {
   return (
     <ContentArea>
       <Contents>
@@ -17,16 +20,66 @@ const Tendency = ({ data }: TendencyProps) => {
         <SubTitle>인종</SubTitle>
       </Contents>
       <Contents right={true}>
-        <Content>
+        <Content
+          onClick={() => {
+            setModal(true);
+            setModalType(ModalType.PERSONALITY);
+          }}
+        >
           {data?.personality.map((item, key) => (
             <span key={key}>{item} </span>
           ))}
         </Content>
-        <Content>{data?.religion}</Content>
-        <Content>{data?.bear}</Content>
-        <Content>{data?.smoking}</Content>
-        <Content>{data?.bloodType}</Content>
-        <Content>{data?.race}</Content>
+        <Content>
+          <span
+            onClick={() => {
+              setModal(true);
+              setModalType(ModalType.RELIGION);
+            }}
+          >
+            {data?.religion}
+          </span>
+        </Content>
+        <Content>
+          <span
+            onClick={() => {
+              setModal(true);
+              setModalType(ModalType.BEAR);
+            }}
+          >
+            {data?.bear}
+          </span>
+        </Content>
+        <Content>
+          <span
+            onClick={() => {
+              setModal(true);
+              setModalType(ModalType.SMOKING);
+            }}
+          >
+            {data?.smoking}
+          </span>
+        </Content>
+        <Content>
+          <span
+            onClick={() => {
+              setModal(true);
+              setModalType(ModalType.BLOOD_TYPE);
+            }}
+          >
+            {data?.bloodType}
+          </span>
+        </Content>
+        <Content>
+          <span
+            onClick={() => {
+              setModal(true);
+              setModalType(ModalType.RACE);
+            }}
+          >
+            {data?.race}
+          </span>
+        </Content>
       </Contents>
     </ContentArea>
   );

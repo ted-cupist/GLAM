@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
-export const BasicSpan = styled.span`
+export const BasicDiv = styled.div`
   margin-left: 0.5rem;
   font-size: 13px;
+  width: auto;
 `;
 
 export const ContentArea = styled.div`
@@ -15,11 +16,10 @@ export const Contents = styled.div<{ right?: boolean }>`
   display: flex;
   flex-direction: column;
   min-width: 3.5rem;
-
   ${(props) => props.right && "margin-left:2rem"}
 `;
 
-export const SubTitle = styled(BasicSpan)`
+export const SubTitle = styled(BasicDiv)`
   margin-top: 0.5rem;
   font-size: 1rem;
 `;
@@ -27,7 +27,9 @@ export const SubTitle = styled(BasicSpan)`
 export const Content = styled(SubTitle)<{ change?: boolean }>`
   ${(props) => props.change && "font-color:black"}
   color: #1c9dea;
-  cursor: pointer;
+  & span {
+    cursor: pointer;
+  }
 `;
 
 export const TagArea = styled.div`
@@ -84,7 +86,11 @@ export const SelectArea = styled.div`
   flex-direction: column;
 `;
 
-export const SelectDiv = styled.span`
+export const SelectSpan = styled.span`
   display: inline-block;
   padding: 0.4rem 0;
+`;
+
+export const SelectedSpan = styled(SelectSpan)`
+  color: #1c9dea;
 `;

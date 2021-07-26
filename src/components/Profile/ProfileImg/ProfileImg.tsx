@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import UserImg from "../../../assets/img/userimg.png";
-import { BasicSpan } from "../ProfileStyle";
+import { BasicDiv } from "../ProfileStyle";
 
 interface ProfileImgProps {}
 
@@ -16,7 +16,7 @@ const ProfileImg = ({}: ProfileImgProps) => {
         <CustomImg src={UserImg} alt="" />
       </ImgArea>
       <SpanArea>
-        <BasicSpan>얼굴이 선명히 보이는 사진으로 올려주세요</BasicSpan>
+        <BasicDiv>얼굴이 선명히 보이는 사진으로 올려주세요</BasicDiv>
         <CustomA href="http://www.glam.am/guide_line/ko/?fbclid=IwAR1o58GoKQaYALG3FQhFQkvCpq7IM3UedviFyCPETHv8D6gojm9F0Zr1Bxg">
           더 알아보기
         </CustomA>

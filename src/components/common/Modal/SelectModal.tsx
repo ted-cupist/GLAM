@@ -2,27 +2,51 @@ import styled from "styled-components";
 import {
   Background,
   BasicModalStyle,
-  ModalTitle,
   SelectArea,
-  SelectDiv,
+  SelectSpan,
+  SelectedSpan,
 } from "../../Profile/ProfileStyle";
 
 interface SelectModalProps {
   title: string;
   model: string[];
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
+  selected: string | undefined;
 }
 
-const SelectModal = ({ title, model, setModal }: SelectModalProps) => {
+const SelectModal = ({
+  title,
+  model,
+  setModal,
+  selected,
+}: SelectModalProps) => {
   return (
     <>
       <Background onClick={() => setModal(false)} />
       <SelectModalArea>
         <CustomModalTitle>{title}</CustomModalTitle>
         <SelectArea>
-          {model.map((item, key) => (
-            <SelectDiv key={key}>{item}</SelectDiv>
-          ))}
+          {model.map((item, key) =>
+            selected === item ? (
+              <SelectedSpan
+                onClick={() => {
+                  setModal(false);
+                }}
+                key={key}
+              >
+                {item}
+              </SelectedSpan>
+            ) : (
+              <SelectSpan
+                onClick={() => {
+                  setModal(false);
+                }}
+                key={key}
+              >
+                {item}
+              </SelectSpan>
+            )
+          )}
         </SelectArea>
       </SelectModalArea>
     </>

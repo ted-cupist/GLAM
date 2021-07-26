@@ -8,6 +8,7 @@ import Charm from "./Charm";
 import Interest from "./Interest";
 import Intro from "./Intro";
 import LifeStyle from "./LifeStyle";
+import Modal from "./Modal";
 import Physical from "./Physical";
 import ProfileImg from "./ProfileImg";
 import Tendency from "./Tendency";
@@ -62,31 +63,26 @@ const Profile = ({
         <h3>프로필 수정</h3>
       </ProfileHeader>
       <ProfileImg />
-      <Basic
-        data={data}
-        modal={modal}
-        setModal={setModal}
-        modalType={modalType}
-        setModalType={setModalType}
-        input={input}
-        onChangeInput={onChangeInput}
-        handleNicknameChange={handleNicknameChange}
-      />
+      <Basic data={data} setModal={setModal} setModalType={setModalType} />
       <Intro data={data} />
-      <Physical
-        data={data}
-        modal={modal}
-        setModal={setModal}
-        modalType={modalType}
-        setModalType={setModalType}
-      />
-      <Career data={data} />
-      <Tendency data={data} />
+      <Physical data={data} setModal={setModal} setModalType={setModalType} />
+      <Career data={data} setModal={setModal} setModalType={setModalType} />
+      <Tendency data={data} setModal={setModal} setModalType={setModalType} />
       {/* 성향 */}
       <Charm data={data} />
       {/* 매력 */}
       <Interest data={data} />
       <LifeStyle data={data} />
+      {modal && (
+        <Modal
+          data={data}
+          setModal={setModal}
+          modalType={modalType}
+          input={input}
+          onChangeInput={onChangeInput}
+          handleNicknameChange={handleNicknameChange}
+        />
+      )}
     </ProfileArea>
   );
 };

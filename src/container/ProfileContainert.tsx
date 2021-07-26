@@ -12,9 +12,23 @@ const ProfileContainer = () => {
   const [input, setInput] = useState<IProfileInput>({
     nickname: "",
     birth: new Date(),
+    home: "",
     intro: "",
     tall: 0,
     school: "",
+    physical: "",
+    rectal: null,
+    job: "",
+    grade: "",
+    personality: [""],
+    religion: "",
+    bear: "",
+    smoking: "",
+    bloodType: "",
+    race: "",
+    charm: [""],
+    interest: [""],
+    lifeStyle: [""],
   });
 
   const onChangeInput = useCallback(
@@ -27,36 +41,74 @@ const ProfileContainer = () => {
     [input]
   );
 
-  const handleNicknameChange = () => {
-    console.log("handleNicknameChange");
+  const handleUserData = useCallback(() => {
+    const data = getInfo();
+    setInput({
+      nickname: data.nickname,
+      birth: new Date(),
+      home: data.home,
+      intro: data.intro,
+      tall: data.tall,
+      school: data.school,
+      physical: data.physical,
+      rectal: data.rectal,
+      job: data.job,
+      grade: data.grade,
+      personality: data.personality,
+      religion: data.religion,
+      bear: data.bear,
+      smoking: data.smoking,
+      bloodType: data.bloodType,
+      race: data.race,
+      charm: data.charm,
+      interest: data.interest,
+      lifeStyle: data.lifeStyle,
+    });
+    setData(data);
+  }, [getInfo]);
+
+  const handleUpdateUserData = useCallback(() => {
+    const copyData = data;
+    if (copyData) {
+      copyData!.birth = input.birth;
+      copyData!.home = input.home;
+      copyData!.physical = input.physical;
+      copyData!.job = input.job;
+      copyData!.grade = input.grade;
+      copyData!.personality = input.personality;
+      copyData!.religion = input.religion;
+      copyData!.bear = input.bear;
+      copyData!.smoking = input.smoking;
+      copyData!.bloodType = input.bloodType;
+      copyData!.race = input.race;
+      copyData!.charm = input.charm;
+      copyData!.interest = input.interest;
+      copyData!.lifeStyle = input.lifeStyle;
+      localStorage.setItem("myInfo", JSON.stringify(copyData));
+    }
+    handleUserData();
+  }, [data, handleUserData, input]);
+
+  const handleNicknameChange = useCallback(() => {
     const copyData = data;
     copyData!.nickname = input.nickname;
     if (copyData) {
       localStorage.setItem("myInfo", JSON.stringify(copyData));
     }
     handleUserData();
-  };
-
-  const handleUserData = useCallback(() => {
-    const data = getInfo();
-    setInput({
-      nickname: data.nickname,
-      birth: data.birth,
-      intro: data.intro,
-      tall: data.tall,
-      school: data.school,
-    });
-    setData(data);
-  }, [getInfo]);
+  }, [data, handleUserData, input.nickname]);
 
   useEffect(() => {
     handleUserData();
   }, [handleUserData]);
 
   useEffect(() => {
-    modal
-      ? (document.body.style.overflow = "hidden")
-      : (document.body.style.overflow = "unset");
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      handleUpdateUserData();
+      document.body.style.overflow = "unset";
+    }
   }, [modal, setModal]);
 
   return (

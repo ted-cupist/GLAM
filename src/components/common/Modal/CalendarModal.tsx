@@ -28,11 +28,11 @@ const CalendarModal = ({ setModal, date, setInput }: CalendarModalProps) => {
 const CustomDataPicker = styled(DatePicker)`
   z-index: 101;
   position: fixed;
-  width: 80% !important;
-  min-width: 17rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 80% !important;
+  min-width: 17rem;
 `;
 
 export default CalendarModal;
