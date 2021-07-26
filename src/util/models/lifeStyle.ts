@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-anonymous-default-export
 export default [
   "외출을 좋아해요",
   "유연한 근무 시간",

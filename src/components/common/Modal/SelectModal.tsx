@@ -1,7 +1,5 @@
-import styled from "styled-components";
 import {
   Background,
-  BasicModalStyle,
   SelectArea,
   SelectSpan,
   SelectedSpan,
