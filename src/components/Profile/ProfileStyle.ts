@@ -87,6 +87,7 @@ export const SelectArea = styled.div`
 `;
 
 export const SelectSpan = styled.span`
+  cursor: pointer;
   display: inline-block;
   padding: 0.4rem 0;
 `;

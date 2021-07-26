@@ -9,16 +9,20 @@ import {
 
 interface SelectModalProps {
   title: string;
+  name: string;
   model: string[];
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   selected: string | undefined;
+  onChangeItem: (value: string, name: string) => void;
 }
 
 const SelectModal = ({
   title,
+  name,
   model,
   setModal,
   selected,
+  onChangeItem,
 }: SelectModalProps) => {
   return (
     <>
@@ -39,6 +43,7 @@ const SelectModal = ({
             ) : (
               <SelectSpan
                 onClick={() => {
+                  onChangeItem(item, name);
                   setModal(false);
                 }}
                 key={key}

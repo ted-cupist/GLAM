@@ -18,7 +18,7 @@ interface ModalProps {
   modalType: string;
   input: IProfileInput;
   onChangeInput: (value: string | Date, name: string) => void;
-  handleNicknameChange: () => void;
+  handleProfileChange: () => void;
 }
 
 const Modal = ({
@@ -27,7 +27,7 @@ const Modal = ({
   modalType,
   input,
   onChangeInput,
-  handleNicknameChange,
+  handleProfileChange,
 }: ModalProps) => {
   return (
     <div>
@@ -39,7 +39,7 @@ const Modal = ({
           input={input.nickname}
           name="nickname"
           setInput={onChangeInput}
-          onClickFunction={handleNicknameChange}
+          onClickFunction={handleProfileChange}
         />
       )}
       {modalType === ModalType.BIRTH && (
@@ -52,9 +52,11 @@ const Modal = ({
       {modalType === ModalType.HOME && (
         <SelectModal
           title="위치"
+          name="home"
           model={CitiesModel}
           setModal={setModal}
           selected={input?.home}
+          onChangeItem={onChangeInput}
         />
       )}
       {modalType === ModalType.TALL && (
@@ -65,14 +67,17 @@ const Modal = ({
           input={input.tall}
           name="tall"
           setInput={onChangeInput}
+          onClickFunction={handleProfileChange}
         />
       )}
       {modalType === ModalType.PHYSICAL && (
         <SelectModal
           title="체형"
+          name="physical"
           model={physicalModel}
           setModal={setModal}
           selected={input?.physical}
+          onChangeItem={onChangeInput}
         />
       )}
       {modalType === ModalType.RECTAL && (
@@ -83,15 +88,28 @@ const Modal = ({
           input={input.rectal}
           name="rectal"
           setInput={onChangeInput}
+          onClickFunction={handleProfileChange}
         />
       )}
-      {/* 직업 */}
+      {modalType === ModalType.JOB && (
+        <InputModal
+          setModal={setModal}
+          title="직업을 변경하시겠어요?"
+          placeholder="직업"
+          input={input.job}
+          name="job"
+          setInput={onChangeInput}
+          onClickFunction={handleProfileChange}
+        />
+      )}
       {modalType === ModalType.EDUCATION && (
         <SelectModal
           title="학력"
+          name="grade"
           model={EducationModel}
           setModal={setModal}
           selected={input?.grade}
+          onChangeItem={onChangeInput}
         />
       )}
       {modalType === ModalType.SCHOOL && (
@@ -102,47 +120,58 @@ const Modal = ({
           input={input.school}
           name="school"
           setInput={onChangeInput}
+          onClickFunction={handleProfileChange}
         />
       )}
       {/* 성격 */}
       {modalType === ModalType.RELIGION && (
         <SelectModal
           title="종교"
+          name="religion"
           model={ReligionModel}
           setModal={setModal}
           selected={input?.religion}
+          onChangeItem={onChangeInput}
         />
       )}
       {modalType === ModalType.BEAR && (
         <SelectModal
           title="음주"
+          name="bear"
           model={PleasureModel}
           setModal={setModal}
           selected={input?.bear}
+          onChangeItem={onChangeInput}
         />
       )}
       {modalType === ModalType.SMOKING && (
         <SelectModal
           title="흡연"
+          name="smoking"
           model={PleasureModel}
           setModal={setModal}
           selected={input?.smoking}
+          onChangeItem={onChangeInput}
         />
       )}
       {modalType === ModalType.BLOOD_TYPE && (
         <SelectModal
           title="혈액형"
+          name="bloodType"
           model={BloodModel}
           setModal={setModal}
           selected={input?.bloodType}
+          onChangeItem={onChangeInput}
         />
       )}
       {modalType === ModalType.RACE && (
         <SelectModal
           title="인종"
+          name="race"
           model={RaceModel}
           setModal={setModal}
           selected={input?.race}
+          onChangeItem={onChangeInput}
         />
       )}
     </div>

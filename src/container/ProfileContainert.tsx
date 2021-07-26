@@ -73,7 +73,6 @@ const ProfileContainer = () => {
       copyData!.birth = input.birth;
       copyData!.home = input.home;
       copyData!.physical = input.physical;
-      copyData!.job = input.job;
       copyData!.grade = input.grade;
       copyData!.personality = input.personality;
       copyData!.religion = input.religion;
@@ -89,14 +88,18 @@ const ProfileContainer = () => {
     handleUserData();
   }, [data, handleUserData, input]);
 
-  const handleNicknameChange = useCallback(() => {
+  const handleProfileChange = useCallback(() => {
     const copyData = data;
     copyData!.nickname = input.nickname;
+    copyData!.tall = input.tall;
+    copyData!.rectal = input.rectal;
+    copyData!.job = input.job;
+    copyData!.school = input.school;
     if (copyData) {
       localStorage.setItem("myInfo", JSON.stringify(copyData));
     }
     handleUserData();
-  }, [data, handleUserData, input.nickname]);
+  }, [data, handleUserData, input]);
 
   useEffect(() => {
     handleUserData();
@@ -120,7 +123,7 @@ const ProfileContainer = () => {
       setModalType={setModalType}
       input={input}
       onChangeInput={onChangeInput}
-      handleNicknameChange={handleNicknameChange}
+      handleProfileChange={handleProfileChange}
     />
   );
 };
