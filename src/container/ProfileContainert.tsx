@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import getData from "../assets/api/getData";
-import Profile from "../components/Profile/Profile";
+import Profile from "../components/Profile";
 import { IProfileInput } from "../util/interface/IProfile";
 import { UserDataType } from "../util/type/UserDataType";
 
@@ -142,6 +142,8 @@ const ProfileContainer = () => {
       {data ? (
         <Profile
           data={data}
+          onClickModify={onClickModify}
+          setOnClickModify={setOnClickModify}
           modal={modal}
           setModal={setModal}
           modalType={modalType}

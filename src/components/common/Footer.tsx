@@ -10,42 +10,65 @@ import styled from "styled-components";
 const Footer = () => {
   return (
     <FooterArea>
-      <StyledLink
-        exact
-        to="/"
-        className="notSelected"
-        activeClassName="selected"
-      >
-        <AiOutlineHome />
-      </StyledLink>
-      <StyledLink to="/menu" className="notSelected" activeClassName="selected">
-        <TiThMenuOutline />
-      </StyledLink>
-      <StyledLink to="/like" className="notSelected" activeClassName="selected">
-        <BsHeart />
-      </StyledLink>
-      <StyledLink to="/chat" className="notSelected" activeClassName="selected">
-        <VscComment />
-      </StyledLink>
-      <StyledLink
-        to="/profile"
-        className="notSelected"
-        activeClassName="selected"
-      >
-        <FiUser />
-      </StyledLink>
+      <FooterWidth>
+        <StyledLink
+          exact
+          to="/"
+          className="notSelected"
+          activeClassName="selected"
+        >
+          <AiOutlineHome />
+        </StyledLink>
+        <StyledLink
+          to="/menu"
+          className="notSelected"
+          activeClassName="selected"
+        >
+          <TiThMenuOutline />
+        </StyledLink>
+        <StyledLink
+          to="/like"
+          className="notSelected"
+          activeClassName="selected"
+        >
+          <BsHeart />
+        </StyledLink>
+        <StyledLink
+          to="/chat"
+          className="notSelected"
+          activeClassName="selected"
+        >
+          <VscComment />
+        </StyledLink>
+        <StyledLink
+          to="/profile"
+          className="notSelected"
+          activeClassName="selected"
+        >
+          <FiUser />
+        </StyledLink>
+      </FooterWidth>
     </FooterArea>
   );
 };
 
 const FooterArea = styled.div`
   width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: white;
+  box-shadow: rgb(0 0 0 / 5%) 2px 2px 4px 4px;
+  display: flex;
+  justify-content: center;
+`;
+
+const FooterWidth = styled.div`
   max-width: 1200px;
+  width: 100%;
   background: white;
   display: flex;
   justify-content: space-around;
-  position: fixed;
-  bottom: 0;
 `;
 
 export const StyledLink = styled(NavLink)`

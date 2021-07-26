@@ -1,20 +1,12 @@
-import styled from "styled-components";
-import CancelIcon from "../../assets/img/CancelIcon.png";
 import { IProfileInput } from "../../util/interface/IProfile";
 import { UserDataType } from "../../util/type/UserDataType";
-import Basic from "./Basic";
-import Career from "./Career";
-import Charm from "./Charm";
-import Interest from "./Interest";
-import Intro from "./Intro";
-import LifeStyle from "./LifeStyle";
-import Modal from "./Modal";
-import Physical from "./Physical";
-import ProfileImg from "./ProfileImg";
-import Tendency from "./Tendency";
+import ProfileMain from "./ProfileMain";
+import ProfileModify from "./ProfileModify";
 
 interface ProfileProps {
   data: UserDataType;
+  onClickModify: boolean;
+  setOnClickModify: React.Dispatch<React.SetStateAction<boolean>>;
   modal: boolean;
   setModal: React.Dispatch<React.SetStateAction<boolean>>;
   modalType: string;
@@ -39,6 +31,8 @@ interface ProfileProps {
 
 const Profile = ({
   data,
+  onClickModify,
+  setOnClickModify,
   modal,
   setModal,
   modalType,
@@ -61,38 +55,23 @@ const Profile = ({
   setLifeStyle,
 }: ProfileProps) => {
   return (
-    <ProfileArea>
-      <ProfileHeader>
-        <CancelIconImg src={CancelIcon} />
-        <h3>프로필 수정</h3>
-      </ProfileHeader>
-      <ProfileImg data={data.profile_img} />
-      <Basic data={data} setModal={setModal} setModalType={setModalType} />
-      <Intro
-        data={data}
-        input={input.intro}
-        modal={introModal}
-        setModal={setIntroModal}
-        onChangeInput={onChangeInput}
-        handleModifyIntro={handleModifyIntro}
-      />
-      <Physical data={data} setModal={setModal} setModalType={setModalType} />
-      <Career data={data} setModal={setModal} setModalType={setModalType} />
-      <Tendency data={data} setModal={setModal} setModalType={setModalType} />
-      {/* 성향 */}
-      <Charm data={data} setModal={setModal} setModalType={setModalType} />
-      {/* 매력 */}
-      <Interest data={data} setModal={setModal} setModalType={setModalType} />
-      <LifeStyle data={data} setModal={setModal} setModalType={setModalType} />
-      {modal && (
-        <Modal
+    <>
+      {onClickModify ? (
+        <ProfileModify
+          data={data}
+          modal={modal}
           setModal={setModal}
+          setOnClickModify={setOnClickModify}
           modalType={modalType}
+          setModalType={setModalType}
           input={input}
           birth={birth}
           setBirth={setBirth}
           onChangeInput={onChangeInput}
           handleProfileChange={handleProfileChange}
+          introModal={introModal}
+          setIntroModal={setIntroModal}
+          handleModifyIntro={handleModifyIntro}
           personality={personality}
           setPersonality={setPersonality}
           charm={charm}
@@ -102,27 +81,11 @@ const Profile = ({
           lifeStyle={lifeStyle}
           setLifeStyle={setLifeStyle}
         />
+      ) : (
+        <ProfileMain data={data} />
       )}
-    </ProfileArea>
+    </>
   );
 };
-
-const CancelIconImg = styled.img`
-  position: absolute;
-  width: 2rem;
-  left: 0;
-  margin-left: 3px;
-`;
-
-const ProfileHeader = styled.header`
-  width: 100%;
-  text-align: center;
-  position: relative;
-`;
-
-const ProfileArea = styled.div`
-  width: 100%;
-  margin-bottom: 4rem;
-`;
 
 export default Profile;
