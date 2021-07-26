@@ -82,7 +82,7 @@ const Profile = ({
           setLifeStyle={setLifeStyle}
         />
       ) : (
-        <ProfileMain data={data} />
+        <ProfileMain data={data} setOnClickModify={setOnClickModify} />
       )}
     </>
   );

@@ -5,9 +5,10 @@ import { BasicBtn } from "../common/BasicStyle";
 
 interface ProfileMainProps {
   data: UserDataType;
+  setOnClickModify: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ProfileMain = ({ data }: ProfileMainProps) => {
+const ProfileMain = ({ data, setOnClickModify }: ProfileMainProps) => {
   const [selected, setSelected] = useState<number>(0);
   return (
     <ProfileMainArea>
@@ -29,7 +30,7 @@ const ProfileMain = ({ data }: ProfileMainProps) => {
           </ImgSelectArea>
           <CustomImg src={data.profile_img[selected]} />
         </MainItemArea>
-        <CustomBtn>수정하기</CustomBtn>
+        <CustomBtn onClick={() => setOnClickModify(true)}>수정하기</CustomBtn>
       </ProfileMainCenter>
     </ProfileMainArea>
   );
