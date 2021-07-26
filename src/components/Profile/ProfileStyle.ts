@@ -95,3 +95,31 @@ export const SelectSpan = styled.span`
 export const SelectedSpan = styled(SelectSpan)`
   color: #1c9dea;
 `;
+
+export const CustomInput = styled.input`
+  width: 80%;
+  border-radius: 2px;
+  background: #e7e7e742;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-top: 5px;
+  border: 1px solid #e4e4e4;
+  outline: none;
+`;
+
+export const CustomProfileBtn = styled.button<{ bottom?: boolean }>`
+  border: none;
+  width: 80%;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  border-radius: 5px;
+  font-size: 1rem;
+  ${(props) =>
+    props.bottom && "margin-bottom: 1rem; background : none; font-size:0.8rem;"}
+  &:hover {
+    ${(props) => !props.bottom && "background :#1c9dea ;"}
+  }
+  padding: 5px 0;
+`;

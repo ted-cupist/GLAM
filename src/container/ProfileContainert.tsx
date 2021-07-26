@@ -33,7 +33,6 @@ const ProfileContainer = () => {
 
   const onChangeInput = useCallback(
     (value: string | Date, name: string) => {
-      console.log(value);
       setInput({
         ...input,
         [name]: value,
@@ -73,6 +72,7 @@ const ProfileContainer = () => {
     if (copyData) {
       copyData!.birth = String(birth);
       copyData!.home = input.home;
+      copyData!.intro = input.intro;
       copyData!.physical = input.physical;
       copyData!.grade = input.grade;
       copyData!.personality = input.personality;

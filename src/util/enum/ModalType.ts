@@ -2,6 +2,7 @@ enum ModalType {
   NICKNAME = "NICKNAME",
   BIRTH = "BIRTH",
   HOME = "HOME",
+  INTRO = "INTRO",
   TALL = "TALL",
   PHYSICAL = "PHYSICAL",
   RECTAL = "RECTAL",

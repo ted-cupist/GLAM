@@ -68,7 +68,15 @@ const Profile = ({
       </ProfileHeader>
       <ProfileImg />
       <Basic data={data} setModal={setModal} setModalType={setModalType} />
-      <Intro data={data} />
+      <Intro
+        data={data}
+        input={input.intro}
+        modal={modal}
+        setModal={setModal}
+        modalType={modalType}
+        setModalType={setModalType}
+        onChangeInput={onChangeInput}
+      />
       <Physical data={data} setModal={setModal} setModalType={setModalType} />
       <Career data={data} setModal={setModal} setModalType={setModalType} />
       <Tendency data={data} setModal={setModal} setModalType={setModalType} />
