@@ -135,6 +135,7 @@ const ProfileContainer = () => {
       handleUpdateUserData();
       document.body.style.overflow = "unset";
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [modal, setModal]);
 
   return (

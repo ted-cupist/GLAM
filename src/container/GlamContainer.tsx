@@ -40,7 +40,7 @@ const GlamContainer = () => {
 
   useEffect(() => {
     handleData();
-  }, []);
+  }, [handleData]);
 
   return (
     <Glam

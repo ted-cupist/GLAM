@@ -1,7 +1,6 @@
 import { IProfileInput } from "../../util/interface/IProfile";
 import SelectModal from "../common/Modal/SelectModal";
 import physicalModel from "../../util/models/body";
-import { UserDataType } from "../../util/type/UserDataType";
 import InputModal from "../common/Modal/InputModal";
 import EducationModel from "../../util/models/Education";
 import ReligionModel from "../../util/models/religion";
