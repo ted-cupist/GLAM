@@ -1,7 +1,10 @@
 # 사용 스택
-- TypeScript : 개발 언어로 TypeScript를 사용하였습니다.
-- React : 웹 개발을 하기 위한 UI Library로 사용하였습니다.
-- Styled-Components : 웹 스타일링을 하는 도구로 사용하였습니다.
+- Lanuage
+  - TypeScript : 개발 언어로 TypeScript를 사용하였습니다.
+- Library 
+  - React : 웹 개발을 하기 위한 UI Library로 사용하였습니다.
+  - Styled-Components : 웹 스타일링을 하는 도구로 사용하였습니다.
+  - react-calendar : 달력 라이브러리로 사용하였습니다.
 
 # 주의사항
 - 모바일 웹에 최적화 되어있습니다. 
