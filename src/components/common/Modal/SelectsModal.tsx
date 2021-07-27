@@ -25,14 +25,13 @@ const SelectsModal = ({
 }: SelectsModalProps) => {
   let count = 0;
   const selectedItem = useCallback(
-    (modelItem: string, modelKey: any) => {
+    (modelItem: string) => {
       count++;
       return (
         <SelectedSpan
           onClick={() => {
             setValue(selected.filter((item) => item !== modelItem));
           }}
-          key={modelKey}
         >
           {modelItem}
         </SelectedSpan>
@@ -48,11 +47,12 @@ const SelectsModal = ({
         <CustomModalTitle>{title}</CustomModalTitle>
         <SelectArea itemsNumber={model.length}>
           {model.sort().map((modelItem, modelKey) => (
-            <>
+            <div key={modelKey}>
               {selected && modelItem === selected.sort()[count] ? (
-                <>{selectedItem(modelItem, modelKey)}</>
+                <>{selectedItem(modelItem)}</>
               ) : (
                 <SelectSpan
+                  key={modelKey}
                   onClick={() => {
                     if (title === "성격") {
                       if (selected.length < 3) {
@@ -64,12 +64,11 @@ const SelectsModal = ({
                       setValue([...selected, modelItem]);
                     }
                   }}
-                  key={modelKey}
                 >
                   {modelItem}
                 </SelectSpan>
               )}
-            </>
+            </div>
           ))}
         </SelectArea>
       </SelectModalArea>

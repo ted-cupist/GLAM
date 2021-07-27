@@ -4,6 +4,7 @@ import { ReactComponent as BeLikeSvg } from "../../assets/img/BeLikeIcon.svg";
 import { AiFillStar } from "react-icons/ai";
 import StatusUpdate from "../../util/enum/StatusUpdate";
 import { useState } from "react";
+import { Tag, TagsArea, UserDataArea } from "./BasicStyle";
 
 interface MainItemProps {
   data: MainItemType;
@@ -138,28 +139,6 @@ const BeLikeBtn = styled(BeLikeSvg)`
   fill: gray;
   width: 1.5rem;
   height: 1.5rem;
-`;
-
-const TagsArea = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-const Tag = styled.div`
-  margin-top: 0.3rem;
-  background: #000000ac;
-  color: white;
-  margin-right: 0.5rem;
-  border-radius: 5px;
-  padding: 3px 5px;
-`;
-
-const UserDataArea = styled.div`
-  padding-left: 0.5rem;
-  padding-bottom: 1rem;
-  position: absolute;
-  bottom: 0;
-  width: 95%;
 `;
 
 const Name = styled.h2`

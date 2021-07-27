@@ -1,14 +1,17 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { UserDataType } from "../../util/type/UserDataType";
-import { BasicBtn } from "../common/BasicStyle";
+import { BasicBtn, Tag, TagsArea, UserDataArea } from "../common/BasicStyle";
 
 interface ProfileMainProps {
   data: UserDataType;
   setOnClickModify: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+const YEAR = new Date().getFullYear();
+
 const ProfileMain = ({ data, setOnClickModify }: ProfileMainProps) => {
+  const BIRTH = new Date(data.birth).getFullYear();
   const [selected, setSelected] = useState<number>(0);
   return (
     <ProfileMainArea>
@@ -29,12 +32,26 @@ const ProfileMain = ({ data, setOnClickModify }: ProfileMainProps) => {
             )}
           </ImgSelectArea>
           <CustomImg src={data.profile_img[selected]} />
+          <UserDataArea>
+            <Name>
+              {data.nickname}, {YEAR - BIRTH}
+            </Name>
+            <TagsArea>
+              {data.personality.map((item, key) => (
+                <Tag key={key}>{item}</Tag>
+              ))}
+            </TagsArea>
+          </UserDataArea>
         </MainItemArea>
         <CustomBtn onClick={() => setOnClickModify(true)}>수정하기</CustomBtn>
       </ProfileMainCenter>
     </ProfileMainArea>
   );
 };
+
+const Name = styled.h2`
+  color: white;
+`;
 
 const ProfileMainArea = styled.div`
   width: 100%;
