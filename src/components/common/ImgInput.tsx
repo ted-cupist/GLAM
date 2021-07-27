@@ -49,6 +49,16 @@ const FileUploadLabel = styled.label`
 
 const LabelDiv = styled.div`
   flex-grow: 1;
+  max-height: 25rem;
+  ${({ theme }) => theme.device?.smallDesktop} {
+    max-height: 18rem;
+  }
+  ${({ theme }) => theme.device?.tablet} {
+    max-height: 14rem;
+  }
+  ${({ theme }) => theme.device?.mobile} {
+    max-height: 7.5rem;
+  }
   width: 30%;
   display: flex;
   align-items: center;
