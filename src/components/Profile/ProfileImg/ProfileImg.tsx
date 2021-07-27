@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import UserImg from "../../../assets/img/userimg.png";
+import ImgInput from "../../common/ImgInput";
 import { BasicDiv } from "../ProfileStyle";
 
 interface ProfileImgProps {
@@ -11,31 +12,11 @@ const ProfileImg = ({ data }: ProfileImgProps) => {
     <>
       <ImgArea>
         {data.map((item, key) => (
-          <LabelDiv key={key}>
-            <FileUploadLabel htmlFor="file">
-              <CustomImg src={item} alt="사진입니다" />
-            </FileUploadLabel>
-            <FileSelectInput
-              type="file"
-              id="file"
-              accept="image/png image/jpeg image/jpg"
-            />
-          </LabelDiv>
+          <ImgInput item={item} key={key} id={key} />
         ))}
-        {[...Array(6 - data.length)].map((item, key) => {
-          return (
-            <LabelDiv key={key}>
-              <FileUploadLabel htmlFor="file" key={key + data.length}>
-                <CustomImg src={UserImg} alt="파일을 선택해주세요" />
-              </FileUploadLabel>
-              <FileSelectInput
-                type="file"
-                id="file"
-                accept="image/png image/jpeg image/jpg"
-              />
-            </LabelDiv>
-          );
-        })}
+        {[...Array(6 - data.length)].map((item, key) => (
+          <ImgInput item={UserImg} key={key} id={key + data.length} />
+        ))}
       </ImgArea>
       <SpanArea>
         <BasicDiv>얼굴이 선명히 보이는 사진으로 올려주세요</BasicDiv>
@@ -52,11 +33,6 @@ const ImgArea = styled.div`
   flex-wrap: wrap;
 `;
 
-const CustomImg = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-`;
 const CustomA = styled.a`
   font-size: 13px;
   font-weight: bold;
@@ -68,24 +44,6 @@ const CustomA = styled.a`
 const SpanArea = styled.div`
   width: 100%;
   height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
-const FileSelectInput = styled.input`
-  display: none;
-`;
-
-const FileUploadLabel = styled.label`
-  width: 100%;
-  margin: 5px;
-  flex-grow: 1;
-`;
-
-const LabelDiv = styled.div`
-  flex-grow: 1;
-  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;
