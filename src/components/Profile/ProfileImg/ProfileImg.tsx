@@ -11,8 +11,8 @@ const ProfileImg = ({ data }: ProfileImgProps) => {
     <>
       <ImgArea>
         {data.map((item, key) => (
-          <>
-            <FileUploadLabel key={key} htmlFor="file">
+          <LabelDiv key={key}>
+            <FileUploadLabel htmlFor="file">
               <CustomImg src={item} alt="사진입니다" />
             </FileUploadLabel>
             <FileSelectInput
@@ -20,20 +20,20 @@ const ProfileImg = ({ data }: ProfileImgProps) => {
               id="file"
               accept="image/png image/jpeg image/jpg"
             />
-          </>
+          </LabelDiv>
         ))}
         {[...Array(6 - data.length)].map((item, key) => {
           return (
-            <>
-              <FileUploadLabel htmlFor="file">
-                <CustomImg key={key} src={UserImg} alt="파일을 선택해주세요" />
+            <LabelDiv key={key}>
+              <FileUploadLabel htmlFor="file" key={key + data.length}>
+                <CustomImg src={UserImg} alt="파일을 선택해주세요" />
               </FileUploadLabel>
               <FileSelectInput
                 type="file"
                 id="file"
                 accept="image/png image/jpeg image/jpg"
               />
-            </>
+            </LabelDiv>
           );
         })}
       </ImgArea>
@@ -78,9 +78,14 @@ const FileSelectInput = styled.input`
 `;
 
 const FileUploadLabel = styled.label`
-  width: 30%;
+  width: 100%;
   margin: 5px;
   flex-grow: 1;
+`;
+
+const LabelDiv = styled.div`
+  flex-grow: 1;
+  width: 30%;
   display: flex;
   align-items: center;
   justify-content: center;

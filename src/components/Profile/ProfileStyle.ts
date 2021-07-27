@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const BasicDiv = styled.div`
-  margin-left: 0.5rem;
   font-size: 13px;
   width: auto;
 `;
@@ -16,6 +15,7 @@ export const Contents = styled.div<{ right?: boolean }>`
   display: flex;
   flex-direction: column;
   min-width: 3.5rem;
+  margin-left: 0.5rem;
   ${(props) => props.right && "margin-left:2rem"}
 `;
 
@@ -47,7 +47,7 @@ export const TagDiv = styled.div`
 `;
 
 export const TagsArea = styled.div`
-  margin: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
 `;
 
 export const Background = styled.div`
