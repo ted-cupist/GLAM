@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/GLAM/static/css/main.ff576dba.chunk.css",
-    "main.js": "/GLAM/static/js/main.f1391426.chunk.js",
-    "main.js.map": "/GLAM/static/js/main.f1391426.chunk.js.map",
+    "main.js": "/GLAM/static/js/main.1a45250d.chunk.js",
+    "main.js.map": "/GLAM/static/js/main.1a45250d.chunk.js.map",
     "runtime-main.js": "/GLAM/static/js/runtime-main.2dc1efed.js",
     "runtime-main.js.map": "/GLAM/static/js/runtime-main.2dc1efed.js.map",
     "static/css/2.8cebfa1f.chunk.css": "/GLAM/static/css/2.8cebfa1f.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.8cebfa1f.chunk.css",
     "static/js/2.abb0c331.chunk.js",
     "static/css/main.ff576dba.chunk.css",
-    "static/js/main.f1391426.chunk.js"
+    "static/js/main.1a45250d.chunk.js"
   ]
 }
